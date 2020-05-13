@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import kotlinx.android.synthetic.main.activity_board_write.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class Login : AppCompatActivity() {
@@ -12,6 +14,11 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        //  키보드 숨기기
+        outer_layout_login.setOnClickListener {
+            hideKeyboard()
+        }
 
 
         //  회원가입
@@ -33,4 +40,10 @@ class Login : AppCompatActivity() {
 
 
     }
+
+    fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(userid_edittext_login.windowToken, 0)
+    }
+
 }

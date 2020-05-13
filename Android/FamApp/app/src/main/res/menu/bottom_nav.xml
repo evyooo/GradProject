@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_menu"
+        android:title="home"
+        android:icon="@color/mainPurple"/>
+
+    <item
+        android:id="@+id/calendar_menu"
+        android:title="calendar"
+        android:icon="@color/mainPurple"/>
+
+    <item
+        android:id="@+id/todo_menu"
+        android:title="todo"
+        android:icon="@color/mainPurple"/>
+
+    <item
+        android:id="@+id/board_menu"
+        android:title="board"
+        android:icon="@color/mainPurple"/>
+
+    <item
+        android:id="@+id/stats_menu"
+        android:title="stats"
+        android:icon="@color/mainPurple"/>
+
+</menu>
