@@ -38,6 +38,19 @@ class Board_write : AppCompatActivity() {
             }
         })
 
+        //  고정
+        var fixflag = 0
+        fix_imageview_boardwrite.setOnClickListener {
+            if (fixflag == 0){
+                fix_imageview_boardwrite.setImageResource(R.drawable.icon_fixed)
+                fixflag = 1
+            }
+            else{
+                fix_imageview_boardwrite.setImageResource(R.drawable.icon_fixed_default)
+                fixflag = 0
+            }
+        }
+
 
         //  취소 버튼
         cancel_button_boardwrite.setOnClickListener {

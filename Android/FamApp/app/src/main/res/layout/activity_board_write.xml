@@ -73,8 +73,18 @@
         app:layout_constraintBottom_toTopOf="@+id/line"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageView
+        android:id="@+id/fix_imageview_boardwrite"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fix_textview_boardwrite"
+        app:layout_constraintEnd_toStartOf="@+id/fix_textview_boardwrite"
+        app:layout_constraintTop_toTopOf="@+id/fix_textview_boardwrite"
+        app:srcCompat="@drawable/icon_fixed_default" />
+
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/fix_textview_boardwrite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
