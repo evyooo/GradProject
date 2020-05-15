@@ -6,11 +6,22 @@
     <color name="mainPurple">#A6B0D1</color>
     <color name="backGroundGray">#EAEAEA</color>
 
-    <color name="navigation_color_add">#6200EE</color>
-    <color name="navigation_color_mood">#C9379D</color>
-    <color name="navigation_color_habit">#E6A919</color>
-    <color name="navigation_color_chart">#008577</color>
-    <color name="navigation_color_profile">#1194AA</color>
+    <color name="profile1">#BBBBE3</color>
+    <color name="profile2">#9BABDC</color>
+    <color name="profile3">#99BEB5</color>
+    <color name="profile4">#DBB1B1</color>
+    <color name="profile5">#C3AAD1</color>
+    <color name="profile6">#8CAEDE</color>
+    <color name="profile7">#9AD3CA</color>
+    <color name="profile8">#E7C6D7</color>
+    <color name="profile9">#C9BBC8</color>
+    <color name="profile10">#B6B3C4</color>
+    <color name="profile11">#ABCACF</color>
+    <color name="profile12">#E7C1D0</color>
+    <color name="profile13">#BE91C8</color>
+    <color name="profile14">#4B59A4</color>
+    <color name="profile15">#A2D2D2</color>
+    <color name="profile16">#E9A49D</color>
 
 
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".Setting_myaccount">
+    tools:context=".settings.Setting_myaccount">
 
     <ImageView
         android:id="@+id/title_imageview_settingacc"
