@@ -37,8 +37,14 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        //  초대
+        invite_imageview_home.setOnClickListener {
+            var intent = Intent(context, Invite::class.java)
+            startActivity(intent)
+        }
 
-        //  처음엔 접어두기
+
+        //  멤버 구성 (처음엔 접어두기)
         var flag = 1
         members_conslay_main.visibility = View.GONE
 
@@ -78,6 +84,8 @@ class HomeFragment : Fragment() {
 
         //  오늘의 날짜 설정 [m월 d일 (금)]형태
         todaydate_textview_main.text = "$formatted ($dayOfWeek)"
+
+
 
 
         //  이동

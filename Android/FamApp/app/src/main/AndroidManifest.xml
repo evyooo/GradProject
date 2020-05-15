@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Setting_members"></activity>
+        <activity android:name=".Setting_room" />
+        <activity android:name=".Setting_myaccount" />
+        <activity android:name=".Invite" />
+        <activity android:name=".Settings" />
         <activity android:name=".Board_write" />
         <activity android:name=".BoardFragment" />
         <activity android:name=".Register" />
