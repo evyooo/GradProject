@@ -46,9 +46,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="19dp"
-                    android:layout_marginLeft="19dp"
                     android:layout_marginTop="31dp"
-                    android:text="TextView"
+                    android:fontFamily="@font/boldnanumsquareround"
+                    android:text="가족 이름,"
                     android:textColor="@android:color/black"
                     android:textSize="25dp"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -58,30 +58,217 @@
                     android:id="@+id/motto_textview_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="가훈가훈가훈가훈"
                     android:textColor="@android:color/black"
                     android:textSize="21dp"
                     app:layout_constraintStart_toStartOf="@+id/famname_textview_main"
                     app:layout_constraintTop_toBottomOf="@+id/famname_textview_main" />
 
                 <TextView
-                    android:id="@+id/membercount_textview_main"
+                    android:id="@+id/membercount_fixed_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="TextView"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="멤버 수"
                     android:textColor="@android:color/black"
                     android:textSize="12dp"
                     app:layout_constraintStart_toStartOf="@+id/motto_textview_main"
                     app:layout_constraintTop_toBottomOf="@+id/motto_textview_main" />
+
+                <TextView
+                    android:id="@+id/membercount_textview_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="n"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/membercount_fixed_main"
+                    app:layout_constraintStart_toEndOf="@+id/membercount_fixed_main"
+                    app:layout_constraintTop_toTopOf="@+id/membercount_fixed_main" />
+
+                <ImageView
+                    android:id="@+id/setting_imageview_home"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="37dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/arrow_right"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/showmembers_imageview_main"
+                    android:layout_width="24dp"
+                    android:layout_height="29dp"
+                    android:layout_marginStart="46dp"
+                    android:src="@drawable/arrow_down"
+                    app:layout_constraintBottom_toBottomOf="@+id/membercount_textview_main"
+                    app:layout_constraintStart_toStartOf="@+id/membercount_fixed_main"
+                    app:layout_constraintTop_toTopOf="@+id/membercount_textview_main" />
+
+                <TextView
+                    android:id="@+id/invite_textview_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="초대하기"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/showmembers_imageview_main"
+                    app:layout_constraintStart_toEndOf="@+id/showmembers_imageview_main"
+                    app:layout_constraintTop_toTopOf="@+id/showmembers_imageview_main" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="30dp"
+                    android:layout_height="29dp"
+                    android:layout_marginStart="37dp"
+                    android:src="@drawable/invite_button"
+                    app:layout_constraintBottom_toBottomOf="@+id/invite_textview_main"
+                    app:layout_constraintStart_toStartOf="@+id/invite_textview_main"
+                    app:layout_constraintTop_toTopOf="@+id/invite_textview_main" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/members_conslay_main"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="40dp"
                 android:background="@android:color/white">
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/calendar_constraintlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/calendar_move"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/home_box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/todaydate_textview_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="4월 1일 (금)"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="@+id/calendar_move"
+                    app:layout_constraintTop_toTopOf="@+id/calendar_move" />
+
+                <ImageView
+                    android:id="@+id/arrow_calendar_main"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="1dp"
+                    android:src="@drawable/home_box_detail"
+                    app:layout_constraintBottom_toBottomOf="@+id/todaydate_textview_main"
+                    app:layout_constraintStart_toEndOf="@+id/todaydate_textview_main"
+                    app:layout_constraintTop_toTopOf="@+id/todaydate_textview_main" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/todo_conslay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/todo_move"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/home_box"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title_todo_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="36dp"
+                    android:fontFamily="@font/boldnanumsquareround"
+                    android:text="칭찬 스티커 현황"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp"
+                    app:layout_constraintStart_toStartOf="@+id/todo_move"
+                    app:layout_constraintTop_toTopOf="@+id/todo_move" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="1dp"
+                    android:src="@drawable/home_box_detail"
+                    app:layout_constraintBottom_toBottomOf="@+id/title_todo_main"
+                    app:layout_constraintStart_toEndOf="@+id/title_todo_main"
+                    app:layout_constraintTop_toTopOf="@+id/title_todo_main" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_conslay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/stats_move"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/home_box"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title_stats_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="36dp"
+                    android:fontFamily="@font/boldnanumsquareround"
+                    android:text="오늘의 할 일"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp"
+                    app:layout_constraintStart_toStartOf="@+id/stats_move"
+                    app:layout_constraintTop_toTopOf="@+id/stats_move" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="1dp"
+                    android:src="@drawable/home_box_detail"
+                    app:layout_constraintBottom_toBottomOf="@+id/title_stats_main"
+                    app:layout_constraintStart_toEndOf="@+id/title_stats_main"
+                    app:layout_constraintTop_toTopOf="@+id/title_stats_main" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
