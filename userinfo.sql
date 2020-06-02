@@ -1,7 +1,6 @@
 create table USERINFO(
-	username text, 
-    useremail text,
+	name text, 
+    userid text,
     userpw text,
-    animaltestflag int,
-    fmaxnum int,
-    countarray text);
+    birthday text);
+

@@ -1,10 +1,11 @@
-package com.example.famapp
+package com.example.famapp.LoginRegister
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import android.widget.Toast
+import com.example.famapp.MainActivity
+import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {

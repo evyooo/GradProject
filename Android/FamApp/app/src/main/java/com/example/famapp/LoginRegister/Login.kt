@@ -1,12 +1,12 @@
-package com.example.famapp
+package com.example.famapp.LoginRegister
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import kotlinx.android.synthetic.main.activity_board_write.*
+import com.example.famapp.MainActivity
+import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_login.*
 
 class Login : AppCompatActivity() {
@@ -26,7 +26,6 @@ class Login : AppCompatActivity() {
             var intent = Intent(this, Register::class.java)
             startActivity(intent)        }
 
-        //  TODO 서버 연결, 추후 조건걸기
         //  로그인
         login_button_login.setOnClickListener {
 
@@ -34,7 +33,10 @@ class Login : AppCompatActivity() {
             var userid = userid_edittext_login.text.toString()
             var userpw = userpw_edittext_login.text.toString()
 
-            var intent = Intent(this, MainActivity::class.java)
+            //  TODO ..  서버 연결, 추후 조건걸기
+
+
+            var intent = Intent(this, ChooseRoom::class.java)
             startActivity(intent)
         }
 

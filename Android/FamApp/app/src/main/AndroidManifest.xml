@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".todo.NewTodo"></activity>
+        <activity android:name=".LoginRegister.JoinRoom"></activity>
+        <activity android:name=".LoginRegister.CreateRoom" />
+        <activity android:name=".LoginRegister.ChooseRoom" />
+        <activity android:name=".todo.NewTodo" />
         <activity android:name=".settings.Setting_members" />
         <activity android:name=".settings.Setting_room" />
         <activity android:name=".settings.Setting_myaccount" />
@@ -17,8 +20,8 @@
         <activity android:name=".settings.Settings" />
         <activity android:name=".Board_write" />
         <activity android:name=".BoardFragment" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login">
+        <activity android:name=".LoginRegister.Register" />
+        <activity android:name=".LoginRegister.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
