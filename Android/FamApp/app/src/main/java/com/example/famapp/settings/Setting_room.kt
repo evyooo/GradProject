@@ -15,5 +15,11 @@ class Setting_room : AppCompatActivity() {
         cancel_button_setroom.setOnClickListener {
             finish()
         }
+
+
+        //  데이터 가져온 후 띄우기
+        roomname_edittext_setroom.setText("현재 방 이름")
+        roomdes_edittext_setroom.setText("현지 가훈")
+
     }
 }

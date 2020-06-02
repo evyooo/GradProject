@@ -3,6 +3,7 @@
     package="com.example.famapp">
 
     <application
+        android:name=".Global"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,10 +17,10 @@
         <activity android:name=".settings.Setting_members" />
         <activity android:name=".settings.Setting_room" />
         <activity android:name=".settings.Setting_myaccount" />
-        <activity android:name=".Invite" />
+        <activity android:name=".Home.Invite" />
         <activity android:name=".settings.Settings" />
-        <activity android:name=".Board_write" />
-        <activity android:name=".BoardFragment" />
+        <activity android:name=".Board.Board_write" />
+        <activity android:name=".Board.BoardFragment" />
         <activity android:name=".LoginRegister.Register" />
         <activity android:name=".LoginRegister.Login">
             <intent-filter>

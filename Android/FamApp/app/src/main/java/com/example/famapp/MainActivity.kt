@@ -3,6 +3,10 @@ package com.example.famapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
+import com.example.famapp.Board.BoardFragment
+import com.example.famapp.Calendar.CalendarFragment
+import com.example.famapp.Home.HomeFragment
+import com.example.famapp.Stats.StatsFragment
 import com.example.famapp.todo.TodoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -41,6 +45,8 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.framelayout, homeFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
+
+
                 }
 
                 R.id.calendar_menu -> {

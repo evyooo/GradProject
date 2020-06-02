@@ -16,9 +16,9 @@ class Setting_members : AppCompatActivity() {
 
         var memberslist = arrayListOf<Members>()
 
-        var temp = Members("user1", "1")
-        var temp1 = Members("user2", "2")
-        var temp2 = Members("user3", "3")
+        var temp = Members("user1", 1)
+        var temp1 = Members("user2", 2)
+        var temp2 = Members("user3", 3)
 
         memberslist.add(temp)
         memberslist.add(temp1)

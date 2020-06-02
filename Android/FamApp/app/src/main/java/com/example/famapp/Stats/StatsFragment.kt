@@ -1,4 +1,4 @@
-package com.example.famapp
+package com.example.famapp.Stats
 
 
 import android.os.Bundle
@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.famapp.R
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class StatsFragment : Fragment() {
 
     override fun onCreateView(

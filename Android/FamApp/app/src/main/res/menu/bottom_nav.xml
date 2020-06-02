@@ -6,29 +6,28 @@
 
     <item
         android:id="@+id/home_menu"
-        android:title="홈"
-        android:icon="@color/mainPurple"
-        />
+        android:icon="@drawable/icon_home_default"
+        android:title="홈" />
 
 
     <item
         android:id="@+id/calendar_menu"
-        android:title="일정"
-        android:icon="@color/mainPurple"/>
+        android:icon="@drawable/icon_calendar_default"
+        android:title="일정" />
 
     <item
         android:id="@+id/todo_menu"
-        android:title="규칙"
-        android:icon="@color/mainPurple"/>
+        android:icon="@drawable/icon_todo_default"
+        android:title="규칙" />
 
     <item
         android:id="@+id/board_menu"
-        android:title="게시판"
-        android:icon="@color/mainPurple"/>
+        android:icon="@drawable/icon_bulletin_default"
+        android:title="게시판" />
 
     <item
         android:id="@+id/stats_menu"
-        android:title="현황"
-        android:icon="@color/mainPurple"/>
+        android:icon="@drawable/icon_current_default"
+        android:title="현황" />
 
 </menu>

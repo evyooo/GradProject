@@ -1,4 +1,4 @@
-package com.example.famapp
+package com.example.famapp.Board
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
+import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_board_write.*
 
 class Board_write : AppCompatActivity() {

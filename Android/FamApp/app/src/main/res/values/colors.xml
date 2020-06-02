@@ -22,6 +22,9 @@
     <color name="profile14">#4B59A4</color>
     <color name="profile15">#A2D2D2</color>
     <color name="profile16">#E9A49D</color>
+    
+    <color name="Highlight">#E1E6F5</color>
+    <color name="controlNormal">#D7D8DA</color>
 
 
 </resources>

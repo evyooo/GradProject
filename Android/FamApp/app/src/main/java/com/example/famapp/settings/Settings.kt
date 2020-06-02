@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.famapp.LoginRegister.ChooseRoom
 import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -62,7 +63,8 @@ class Settings : AppCompatActivity() {
 
         //  다른 방 이동
         switch_imageview_settings.setOnClickListener {
-
+            var intent = Intent(this, ChooseRoom::class.java)
+            startActivity(intent)
         }
 
     }

@@ -1,4 +1,4 @@
-package com.example.famapp
+package com.example.famapp.Home
 
 
 import android.content.Intent
@@ -8,6 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.famapp.*
+import com.example.famapp.Calendar.CalendarFragment
+import com.example.famapp.Global.Companion.memberslist
 import com.example.famapp.settings.Settings
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.time.LocalDateTime
@@ -17,6 +21,7 @@ import java.time.format.DateTimeFormatter
 class HomeFragment : Fragment() {
 
     lateinit var calendarFragment: CalendarFragment
+    lateinit var homeMembersAdapter: HomeMembersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,8 +61,28 @@ class HomeFragment : Fragment() {
             else{
                 flag = 0
                 members_conslay_main.visibility = View.VISIBLE
+
+
+                //  TODO 에러 고치기 (addbutton보고 고치기)
+//                if (memberslist.size != 0){
+//
+//
+//                    homeMembersAdapter = HomeMembersAdapter()
+//                    members_recyclerView_home.adapter = homeMembersAdapter
+//                }
             }
         }
+
+
+        //  멤버 리사이클러뷰
+        members_recyclerView_home.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        //  TODO ..  서버
+        memberslist.add(Members("user1", 1))
+        memberslist.add(Members("user2", 4))
+        memberslist.add(Members("user3", 9))
+
+
 
 
 
