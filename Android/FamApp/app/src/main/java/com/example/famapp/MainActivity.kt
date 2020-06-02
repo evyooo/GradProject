@@ -2,12 +2,9 @@ package com.example.famapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.famapp.todo.TodoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.ismaeldivita.chipnavigation.ChipNavigationBar
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 

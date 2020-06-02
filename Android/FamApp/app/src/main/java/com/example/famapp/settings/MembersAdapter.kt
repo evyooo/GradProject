@@ -75,6 +75,9 @@ class MembersAdapter (val context: Context, val memberlist: ArrayList<Members>) 
                 val edialog3 : LayoutInflater = LayoutInflater.from(context)
                 val mView3 : View = edialog3.inflate(R.layout.dialog_member3,null)
 
+                val alertdialog3 : TextView = mView3.findViewById(R.id.alertTitle_dm3)
+                alertdialog3.text = "${memberinfo.name}님의 대표 색상을 선택해주세요"
+
                 val color1 : ImageView = mView3.findViewById(R.id.selectcircle1_dm3)
                 val color2 : ImageView = mView3.findViewById(R.id.selectcircle2_dm3)
                 val color3 : ImageView = mView3.findViewById(R.id.selectcircle3_dm3)
@@ -121,6 +124,9 @@ class MembersAdapter (val context: Context, val memberlist: ArrayList<Members>) 
                 val dialog2 = AlertDialog.Builder(context)
                 val edialog2 : LayoutInflater = LayoutInflater.from(context)
                 val mView2 : View = edialog2.inflate(R.layout.dialog_member2,null)
+
+                val alert : TextView = mView2.findViewById(R.id.textView13)
+                alert.text = "${memberinfo.name}님을 이 방에서\n정말 내보내시겠습니까?"
 
                 dialog2.setView(mView2)
                 dialog2.create()

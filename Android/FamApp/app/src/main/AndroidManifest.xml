@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".settings.members_Adapter"></activity>
+        <activity android:name=".todo.NewTodo"></activity>
         <activity android:name=".settings.Setting_members" />
         <activity android:name=".settings.Setting_room" />
         <activity android:name=".settings.Setting_myaccount" />
