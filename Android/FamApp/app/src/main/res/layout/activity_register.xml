@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/outer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -78,9 +79,9 @@
         android:ems="10"
         android:fontFamily="@font/lightnanumsquareround"
         android:inputType="textPersonName"
+        android:maxLength="20"
         android:textColor="@android:color/black"
         android:textSize="13dp"
-        android:maxLength="20"
         app:layout_constraintBottom_toBottomOf="@+id/userid_textview_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/name_edittext_register"
@@ -90,13 +91,13 @@
         android:id="@+id/userpw_textview_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/boldnanumsquareround"
         android:text="비밀번호"
         android:textColor="@color/profile2"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/userid_textview_register"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintTop_toBottomOf="@+id/userid_textview_register" />
 
     <EditText
         android:id="@+id/userpw_edittext_register"
@@ -123,7 +124,7 @@
         android:textColor="@color/profile2"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/userpw_textview_register"
-        app:layout_constraintTop_toBottomOf="@+id/userpw_textview_register" />
+        app:layout_constraintTop_toTopOf="@+id/textView24" />
 
     <EditText
         android:id="@+id/confirmpw_edittext_register"
@@ -187,8 +188,8 @@
         android:text="(영문 소문자, 숫자 조합 6-20자)"
         android:textColor="@android:color/black"
         android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/userid_edittext_register"
-        app:layout_constraintTop_toBottomOf="@+id/userid_edittext_register" />
+        app:layout_constraintEnd_toEndOf="@+id/userpw_edittext_register"
+        app:layout_constraintTop_toBottomOf="@+id/userpw_edittext_register" />
 
     <TextView
         android:id="@+id/textView25"

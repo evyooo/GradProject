@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="none|textPassword"
             android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="@+id/userid_edittext_login"
             app:layout_constraintStart_toStartOf="@+id/userid_edittext_login"
