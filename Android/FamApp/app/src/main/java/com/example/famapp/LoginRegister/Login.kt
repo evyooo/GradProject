@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.android.volley.Response
@@ -12,11 +13,14 @@ import com.android.volley.toolbox.Volley
 import com.example.famapp.Global
 import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.MainActivity
+import com.example.famapp.MyPreference
 import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 
 class Login : AppCompatActivity() {
+
+    lateinit var myPreference: MyPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +30,6 @@ class Login : AppCompatActivity() {
         outer_layout_login.setOnClickListener {
             hideKeyboard()
         }
-
 
         //  회원가입
         register_textview_login.setOnClickListener {
@@ -61,10 +64,10 @@ class Login : AppCompatActivity() {
                 if(json_response["result"].toString() == "1"){
                     Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
 
-                    //  TODO .. 이미 방 있는지 확인 후 ChooseRoom / Main 중에 해당하는곳으로 이동
+                    myPreference = MyPreference(this)
+                    myPreference.setUsername(userid)
 
-                    var intent = Intent(this, ChooseRoom::class.java)
-                    startActivity(intent)
+                    countRoom(userid)
 
                 }else{
                     Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
@@ -84,6 +87,50 @@ class Login : AppCompatActivity() {
         }
 
         Volley.newRequestQueue(this).add(testRequest)
+    }
+
+
+    fun countRoom(userid: String){
+
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val login_url = basic_url + "count_room?userid=$userid"
+
+        val testRequest = object : StringRequest(Method.GET, login_url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+
+                if(json_response["result"].toString() == "1"){
+
+                    var count = json_response.getString("count").toInt()
+
+                    if (count != 0){
+                        var intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                    }
+                    else{
+                        var intent = Intent(this, ChooseRoom::class.java)
+                            startActivity(intent)
+                    }
+                }
+
+            }, Response.ErrorListener {
+                Toast.makeText(this, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(this).add(testRequest)
+
     }
 
 

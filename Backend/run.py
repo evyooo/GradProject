@@ -65,6 +65,44 @@ def login():
 
 
 
+#  새로운 방 생성
+@app.route("/create_room")
+def create_room():
+    con = Mysql()
+    roomtitle = request.args.get("roomtitle")
+    roomdes = request.args.get("roomdes")
+    user1 = request.args.get("user1")
+
+    query = """insert into ROOMINFO (roomtitle, roomdes, user1) 
+                    values (%s, %s, %s)"""
+    con.cursor.execute(query, (roomtitle, roomdes, user1))
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
+
+#  방 갯수 세기
+@app.route("/count_room")
+def count_room():
+    con = Mysql()
+    userid = request.args.get("userid")
+
+    query = "select count(roomindex) from ROOMINFO where user1 = '" + userid + "' or user2 = '" + userid + "' or user3 = '" + userid + "' or user4 = '" + userid + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    if (query_result):
+        result = {'result': 1, 'count': query_result[0][0]}
+    else:
+        result = {'result': -1, 'message': "unvalid"}
+
+    con.close()
+    return jsonify(result)
+
+
+
+
 
 
 app.run(host='0.0.0.0', port = 5000)

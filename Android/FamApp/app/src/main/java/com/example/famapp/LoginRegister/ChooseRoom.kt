@@ -14,6 +14,9 @@ class ChooseRoom : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_room)
 
+        //  TODO mypreference 설정, 유저네임 대입
+        textView27.text = "가족들이 user님을 기다리고 있어요"
+
 
         //  새로운 방 만들기
         newroom_conslay_choose.setOnClickListener {
