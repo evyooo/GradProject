@@ -10,7 +10,6 @@ import android.widget.Toast
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.famapp.Global
 import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.MainActivity
 import com.example.famapp.MyPreference
@@ -25,6 +24,15 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        myPreference = MyPreference(this)
+        if (myPreference.getRoomindex() != ""){
+
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
         //  키보드 숨기기
         outer_layout_login.setOnClickListener {
@@ -49,6 +57,58 @@ class Login : AppCompatActivity() {
 
     }
 
+    fun bring_index(userid: String){
+
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val login_url = basic_url + "bring_roomindex?userid=$userid"
+
+        val testRequest = object : StringRequest(Method.GET, login_url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+                if(json_response["result"].toString() == "1"){
+                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+
+                    myPreference = MyPreference(this)
+                    myPreference.setUsername(userid)
+
+                    if (json_response["index"].toString() != "null"){
+
+                        myPreference.setRoomindex(json_response["index"].toString())
+
+                        var intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+
+                    }
+                    else{
+                        var intent = Intent(this, CreateOrJoin::class.java)
+                        startActivity(intent)
+                    }
+
+
+                }else{
+                    Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+                }
+
+            }, Response.ErrorListener {
+                Toast.makeText(this, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(this).add(testRequest)
+
+    }
+
 
     fun login(userid: String, userpw: String){
 
@@ -67,7 +127,7 @@ class Login : AppCompatActivity() {
                     myPreference = MyPreference(this)
                     myPreference.setUsername(userid)
 
-                    countRoom(userid)
+                    bring_index(userid)
 
                 }else{
                     Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
@@ -90,48 +150,6 @@ class Login : AppCompatActivity() {
     }
 
 
-    fun countRoom(userid: String){
-
-        val myJson = JSONObject()
-        val requestBody = myJson.toString()
-
-        val login_url = basic_url + "count_room?userid=$userid"
-
-        val testRequest = object : StringRequest(Method.GET, login_url,
-            Response.Listener { response ->
-
-                var json_response = JSONObject(response)
-
-                if(json_response["result"].toString() == "1"){
-
-                    var count = json_response.getString("count").toInt()
-
-                    if (count != 0){
-                        var intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                    }
-                    else{
-                        var intent = Intent(this, ChooseRoom::class.java)
-                            startActivity(intent)
-                    }
-                }
-
-            }, Response.ErrorListener {
-                Toast.makeText(this, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
-
-            }) {
-            override fun getBodyContentType(): String {
-                return "application/json; charset=utf-8"
-            }
-
-            override fun getBody(): ByteArray {
-                return requestBody.toByteArray()
-            }
-        }
-
-        Volley.newRequestQueue(this).add(testRequest)
-
-    }
 
 
     fun hideKeyboard() {

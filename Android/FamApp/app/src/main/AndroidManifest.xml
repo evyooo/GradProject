@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.famapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginRegister.JoinRoom"></activity>
+        <activity android:name=".LoginRegister.ChooseRoom"></activity>
+        <activity android:name=".LoginRegister.JoinRoom" />
         <activity android:name=".LoginRegister.CreateRoom" />
-        <activity android:name=".LoginRegister.ChooseRoom" />
+        <activity android:name=".LoginRegister.CreateOrJoin" />
         <activity android:name=".todo.NewTodo" />
         <activity android:name=".settings.Setting_members" />
         <activity android:name=".settings.Setting_room" />

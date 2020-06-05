@@ -42,39 +42,26 @@
         app:layout_constraintTop_toBottomOf="@+id/title_imageview_invite" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/randomcode_textview_invite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:fontFamily="@font/regularnanumsquareround"
-        android:text="비밀번호 유효기간 :24시간"
-        android:textColor="#989898"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="46dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="TextView"
+        android:text="초대 비밀번호 다시 생성"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/randomcode_textview_invite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

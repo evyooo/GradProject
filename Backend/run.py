@@ -101,7 +101,188 @@ def count_room():
     return jsonify(result)
 
 
+#  방 정보 가져오기 ing
+@app.route("/get_roominfo")
+def get_roominfo():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
 
+    query = "select roomtitle, roomdes from ROOMINFO where roomindex = '" + roomindex + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    if (query_result):
+        result = {'result': 1, 'title': query_result[0][0], 'des': query_result[0][1]}
+    else:
+        result = {'result': -1, 'message': "unvalid"}
+
+    con.close()
+    return jsonify(result)
+
+
+
+#  마지막 접속 방 인덱스
+@app.route("/bring_roomindex")
+def bring_roomindex():
+    con = Mysql()
+    userid = request.args.get("userid")
+
+    query = "select lastroom from USERINFO where userid = '" + userid + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    if (query_result):
+        result = {'result': 1, 'index': query_result[0][0]}
+    else:
+        result = {'result': -1, 'message': "unvalid"}
+
+    con.close()
+    return jsonify(result)
+
+
+#  마지막 접속 방 추가
+@app.route("/put_roomindex")
+def put_roomindex():
+    con = Mysql()
+    userid = request.args.get("userid")
+    index = request.args.get("index")
+
+    query = "update USERINFO set lastroom = '" + index + "' where userid = '" + userid + "'"
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
+
+#  마지막 접속 방 추가
+@app.route("/get_rooms")
+def get_rooms():
+    con = Mysql()
+    userid = request.args.get("userid")
+
+    query = "select roomindex, roomtitle from ROOMINFO where user1 = '" + userid + "' or user2 = '" + userid + "' or user3 = '" + userid + "' or user4 = '" + userid + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    roominfo = []
+
+    for row in query_result:
+        roominfo.append({"index": row[0], 'title': row[1]})
+
+    if (query_result):
+        result = {'result': 1, 'roominfo': roominfo}
+    else:
+        result = {'result': -1}
+
+    con.close()
+    return jsonify(result)
+
+
+
+#  초대 코드 가져오기
+@app.route("/bring_randomcode")
+def bring_randomcode():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+
+    checkquery = "select * from INVITESTRING where roomindex= '" + roomindex + "'"
+    con.cursor.execute(checkquery)
+    query_result = con.cursor.fetchall()
+
+    #  비어있으면 생성
+    if not query_result:
+        query = "insert into INVITESTRING (roomindex, randomstring) values ('" + roomindex + "', left(MD5('" + roomindex + "'),9))"
+        con.cursor.execute(query)
+        con.db.commit()
+
+    checkquery = "select randomstring from INVITESTRING where roomindex= '" + roomindex + "'"
+    con.cursor.execute(checkquery)
+    finalresult = con.cursor.fetchall()
+
+    if (finalresult):
+        result = {'result': 1, 'randomstring': finalresult[0][0]}
+    else:
+        result = {'result': -1}
+
+    con.close()
+    return jsonify(result)
+
+
+#  초대 코드로 방 가입
+@app.route("/join_room")
+def join_room():
+    con = Mysql()
+    randomstring = request.args.get("randomstring")
+    userid = request.args.get("userid")
+
+    checkquery = "select roomindex from INVITESTRING where randomstring= '" + randomstring + "'"
+    con.cursor.execute(checkquery)
+    query_result = con.cursor.fetchall()
+
+    roomindex = query_result[0][0]
+
+    # randomstring이랑 같은 인덱스를 찾으면
+    if query_result:
+        checkquery1 = "select membercount from ROOMINFO where roomindex = '" + roomindex + "'"
+        con.cursor.execute(checkquery1)
+        query_result1 = con.cursor.fetchall()
+
+        membercount = query_result1[0][0]
+
+        if membercount == 0:
+            query = "update ROOMINFO set user1 = '" + userid + "', membercount = 1 where roomindex = '" + roomindex + "'"
+            result = {"result": 1, "roomindex": roomindex}
+
+        elif membercount == 1:
+            query = "update ROOMINFO set user2 = '" + userid + "', membercount = 2 where roomindex = '" + roomindex + "'"
+            result = {"result": 1, "roomindex": roomindex}
+
+        elif membercount == 2:
+            query = "update ROOMINFO set user3 = '" + userid + "', membercount = 3 where roomindex = '" + roomindex + "'"
+            result = {"result": 1, "roomindex": roomindex}
+
+        elif membercount == 3:
+            query = "update ROOMINFO set user4 = '" + userid + "', membercount = 4 where roomindex = '" + roomindex + "'"
+            result = {"result": 1, "roomindex": roomindex}
+
+        else:
+            result = {"result": 2, "roomindex": "full"}
+
+    else:
+        result = {"result": -1, "roomindex": "something wrong"}
+
+
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+
+    return jsonify(result)
+
+
+# #  초대 코드 업데이트
+# @app.route("/update_randomcode")
+# def update_randomcode():
+#     con = Mysql()
+#     roomindex = request.args.get("roomindex")
+#
+#     updatequery = "update INVITESTRING set randomstring = left(MD5('" + roomindex + "'),9) where roomindex = '" + roomindex + "'"
+#     con.cursor.execute(updatequery)
+#     con.db.commit()
+#
+#     query = "select randomstring from INVITESTRING where roomindex= '" + roomindex + "'"
+#     con.cursor.execute(query)
+#     finalresult = con.cursor.fetchall()
+#
+#     if (finalresult):
+#         result = {'result': 1, 'roominfo': finalresult[0][0]}
+#     else:
+#         result = {'result': -1}
+#
+#     con.close()
+#     return jsonify(result)
+#
+#
 
 
 

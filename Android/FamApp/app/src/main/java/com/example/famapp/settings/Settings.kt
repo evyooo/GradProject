@@ -8,8 +8,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.famapp.LoginRegister.ChooseRoom
+import com.example.famapp.LoginRegister.CreateOrJoin
 import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_settings.*
 

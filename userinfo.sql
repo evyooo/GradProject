@@ -2,7 +2,8 @@ create table USERINFO(
 	name text, 
     userid text,
     userpw text,
-    birthday text);
+    birthday text,
+    lastroom int);
 
 ALTER TABLE USERINFO CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

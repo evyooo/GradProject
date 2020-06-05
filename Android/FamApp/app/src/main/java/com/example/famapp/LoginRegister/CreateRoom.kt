@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.android.volley.Response
@@ -76,6 +77,7 @@ class CreateRoom : AppCompatActivity() {
                 var json_response = JSONObject(response)
                 if(json_response["result"].toString() == "1"){
                     Toast.makeText(this, "생성 성공", Toast.LENGTH_SHORT).show()
+
 
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)

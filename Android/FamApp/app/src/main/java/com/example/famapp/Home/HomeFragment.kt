@@ -7,13 +7,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.famapp.*
 import com.example.famapp.Calendar.CalendarFragment
+import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.Global.Companion.memberslist
 import com.example.famapp.settings.Settings
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.json.JSONObject
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -22,6 +28,8 @@ class HomeFragment : Fragment() {
 
     lateinit var calendarFragment: CalendarFragment
     lateinit var homeMembersAdapter: HomeMembersAdapter
+
+    lateinit var myPreference: MyPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +42,12 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        myPreference = MyPreference(requireContext())
+        val currentroom = myPreference.getRoomindex()
+
+        bringData(currentroom)
+
 
         //  설정
         setting_imageview_home.setOnClickListener {
@@ -110,6 +124,9 @@ class HomeFragment : Fragment() {
         todaydate_textview_main.text = "$formatted ($dayOfWeek)"
 
 
+        //bringData(userid)
+
+
 
 
         //  이동
@@ -120,6 +137,43 @@ class HomeFragment : Fragment() {
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 ?.commit()
         }
+
+    }
+
+    fun bringData(index: String){
+
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val login_url = basic_url + "get_roominfo?roomindex=$index"
+
+        val testRequest = object : StringRequest(Method.GET, login_url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+
+                if(json_response["result"].toString() == "1"){
+
+                    famname_textview_main.text = json_response["title"].toString()
+                    motto_textview_main.text = json_response["des"].toString()
+
+                }
+
+            }, Response.ErrorListener {
+                Toast.makeText(context, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(context).add(testRequest)
+
 
     }
 
