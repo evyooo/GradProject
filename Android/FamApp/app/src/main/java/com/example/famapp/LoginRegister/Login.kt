@@ -25,13 +25,16 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+        //  기기에 기록이 남아있으면 자동 접속
         myPreference = MyPreference(this)
         if (myPreference.getRoomindex() != ""){
 
             var intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
-        }
 
+        }
 
 
         //  키보드 숨기기

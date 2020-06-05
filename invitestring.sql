@@ -1,3 +1,3 @@
 create table INVITESTRING(
 	roomindex text,
-    invitecode text);
+    randomstring text);

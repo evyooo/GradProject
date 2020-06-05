@@ -73,12 +73,25 @@ def create_room():
     roomdes = request.args.get("roomdes")
     user1 = request.args.get("user1")
 
-    query = """insert into ROOMINFO (roomtitle, roomdes, user1) 
-                    values (%s, %s, %s)"""
-    con.cursor.execute(query, (roomtitle, roomdes, user1))
+    query = "insert into ROOMINFO (roomtitle, roomdes, user1, membercount) values ('" + roomtitle + "', '" + roomdes + "','" + user1 + "', '1')"
+    con.cursor.execute(query)
     con.db.commit()
+
+    check = "select roomindex from ROOMINFO where roomtitle = '" + roomtitle + "' and roomdes = '" + roomdes + "' and user1 ='" + user1 + "' order by roomindex DESC LIMIT 1"
+    con.cursor.execute(check)
+    cq = con.cursor.fetchall()
+
+    roomindex = cq[0][0]
+
+    updatequery = "update USERINFO set lastroom = '" + str(roomindex) + "' where userid = '" + user1 + "'"
+    con.cursor.execute(updatequery)
+    con.db.commit()
+
+
+
     con.close()
     return jsonify({'result': 1})
+
 
 
 
@@ -101,18 +114,28 @@ def count_room():
     return jsonify(result)
 
 
+
 #  방 정보 가져오기 ing
 @app.route("/get_roominfo")
 def get_roominfo():
     con = Mysql()
     roomindex = request.args.get("roomindex")
 
-    query = "select roomtitle, roomdes from ROOMINFO where roomindex = '" + roomindex + "'"
+    query = "select * from ROOMINFO where roomindex = '" + roomindex + "'"
     con.cursor.execute(query)
     query_result = con.cursor.fetchall()
 
+    names = ""
+
+    for i in range(int(query_result[0][7])):
+        namequery = "select name from USERINFO where userid = '" + query_result[0][i+3] + "'"
+        con.cursor.execute(namequery)
+        namequery_result = con.cursor.fetchall()
+        names = names + (namequery_result[0][0]) + ","
+
+
     if (query_result):
-        result = {'result': 1, 'title': query_result[0][0], 'des': query_result[0][1]}
+        result = {'result': 1, 'title': query_result[0][1], 'des': query_result[0][2], 'users': names, 'membercount': query_result[0][7]}
     else:
         result = {'result': -1, 'message': "unvalid"}
 
@@ -234,17 +257,33 @@ def join_room():
             query = "update ROOMINFO set user1 = '" + userid + "', membercount = 1 where roomindex = '" + roomindex + "'"
             result = {"result": 1, "roomindex": roomindex}
 
+            updatequery = "update USERINFO set lastroom = '" + roomindex + "' where userid = '" + userid + "'"
+            con.cursor.execute(updatequery)
+            con.db.commit()
+
         elif membercount == 1:
             query = "update ROOMINFO set user2 = '" + userid + "', membercount = 2 where roomindex = '" + roomindex + "'"
             result = {"result": 1, "roomindex": roomindex}
+
+            updatequery = "update USERINFO set lastroom = '" + roomindex + "' where userid = '" + userid + "'"
+            con.cursor.execute(updatequery)
+            con.db.commit()
 
         elif membercount == 2:
             query = "update ROOMINFO set user3 = '" + userid + "', membercount = 3 where roomindex = '" + roomindex + "'"
             result = {"result": 1, "roomindex": roomindex}
 
+            updatequery = "update USERINFO set lastroom = '" + roomindex + "' where userid = '" + userid + "'"
+            con.cursor.execute(updatequery)
+            con.db.commit()
+
         elif membercount == 3:
             query = "update ROOMINFO set user4 = '" + userid + "', membercount = 4 where roomindex = '" + roomindex + "'"
             result = {"result": 1, "roomindex": roomindex}
+
+            updatequery = "update USERINFO set lastroom = '" + roomindex + "' where userid = '" + userid + "'"
+            con.cursor.execute(updatequery)
+            con.db.commit()
 
         else:
             result = {"result": 2, "roomindex": "full"}
@@ -258,6 +297,8 @@ def join_room():
     con.close()
 
     return jsonify(result)
+
+
 
 
 # #  초대 코드 업데이트

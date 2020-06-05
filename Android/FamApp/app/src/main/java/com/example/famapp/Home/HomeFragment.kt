@@ -3,6 +3,7 @@ package com.example.famapp.Home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -91,14 +92,6 @@ class HomeFragment : Fragment() {
         //  멤버 리사이클러뷰
         members_recyclerView_home.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        //  TODO ..  서버
-        memberslist.add(Members("user1", 1))
-        memberslist.add(Members("user2", 4))
-        memberslist.add(Members("user3", 9))
-
-
-
-
 
         //  날짜
         val current = LocalDateTime.now()
@@ -156,6 +149,21 @@ class HomeFragment : Fragment() {
 
                     famname_textview_main.text = json_response["title"].toString()
                     motto_textview_main.text = json_response["des"].toString()
+                    membercount_textview_main.text = json_response["membercount"].toString()
+
+                    var members = json_response["users"].toString().split(",").toTypedArray()
+
+                    //  멤버 불러오기 (마지막 여백 제외)
+                    for (i in 0..members.size - 1){
+
+                        if (i != members.size-1){
+                            memberslist.add(Members(members[i], i))
+                        }
+
+                    }
+
+                    homeMembersAdapter = HomeMembersAdapter()
+                    members_recyclerView_home.adapter = homeMembersAdapter
 
                 }
 
@@ -176,6 +184,8 @@ class HomeFragment : Fragment() {
 
 
     }
+
+
 
 
 }

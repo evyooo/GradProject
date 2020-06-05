@@ -10,10 +10,14 @@ import android.view.View
 import android.widget.Button
 import com.example.famapp.LoginRegister.ChooseRoom
 import com.example.famapp.LoginRegister.CreateOrJoin
+import com.example.famapp.LoginRegister.Login
+import com.example.famapp.MyPreference
 import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class Settings : AppCompatActivity() {
+
+    lateinit var myPreference: MyPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +64,20 @@ class Settings : AppCompatActivity() {
             dialog.create()
             dialog.show()
         }
+
+
+        //  로그아웃
+        logout_imageview_setting.setOnClickListener {
+
+            myPreference = MyPreference(this)
+            myPreference.setUsername("")
+            myPreference.setRoomindex("")
+
+            var intent = Intent(this, Login::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
 
         //  다른 방 이동
         switch_imageview_settings.setOnClickListener {

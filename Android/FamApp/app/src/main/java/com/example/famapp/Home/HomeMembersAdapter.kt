@@ -23,7 +23,7 @@ class HomeMembersAdapter: RecyclerView.Adapter<CustomViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent?.context)
-        val cellForRow = layoutInflater.inflate(R.layout.layout_memberslistview, parent, false)
+        val cellForRow = layoutInflater.inflate(R.layout.layout_members_recyclerview, parent, false)
         return CustomViewHolder(cellForRow)
     }
 
@@ -44,7 +44,7 @@ class HomeMembersAdapter: RecyclerView.Adapter<CustomViewHolder>() {
         background.mutate() // Mutate the drawable so changes don't affect every other drawable
 
         //  TODO ..
-        background.setColor(colorlist[member.coloring.toInt()])
+        background.setColor(colorlist[member.coloring])
 
         holder?.view?.color_imageview_members?.setImageDrawable(background)
 
