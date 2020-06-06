@@ -14,4 +14,8 @@
         <item name="colorControlNormal">@color/controlNormal</item>
     </style>
 
+    <style name="AppTheme.NumberPicker" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorPrimary</item>
+    </style>
+
 </resources>
