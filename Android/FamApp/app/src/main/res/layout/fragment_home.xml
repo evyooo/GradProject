@@ -158,12 +158,12 @@
                 <ImageView
                     android:id="@+id/calendar_move"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="118dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="25dp"
                     android:layout_marginEnd="22dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_box"
+                    android:src="@drawable/shape_homebox"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -194,6 +194,27 @@
                     app:layout_constraintStart_toEndOf="@+id/todaydate_textview_main"
                     app:layout_constraintTop_toTopOf="@+id/todaydate_textview_main" />
 
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/realshadow"
+                    app:layout_constraintEnd_toEndOf="@+id/calendar_move"
+                    app:layout_constraintStart_toStartOf="@+id/calendar_move"
+                    app:layout_constraintTop_toBottomOf="@+id/calendar_move" />
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:text="예정된 일정이 없습니다."
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="@+id/todaydate_textview_main"
+                    app:layout_constraintTop_toBottomOf="@+id/todaydate_textview_main" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -204,11 +225,11 @@
                 <ImageView
                     android:id="@+id/todo_move"
                     android:layout_width="match_parent"
-                    android:layout_height="230dp"
+                    android:layout_height="126dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_box"
+                    android:src="@drawable/shape_homebox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -218,7 +239,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="25dp"
                     android:fontFamily="@font/boldnanumsquareround"
                     android:text="칭찬 스티커 현황"
                     android:textColor="@android:color/black"
@@ -241,9 +262,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:lineSpacingMultiplier="1.2"
                     android:text="본인을 포함한 멤버 수가 3명 이상이어야 \n홈화면에서 현황을 확인할 수 있어요"
+                    android:textColor="#AFA8A8"
                     app:layout_constraintStart_toStartOf="@+id/title_todo_main"
                     app:layout_constraintTop_toBottomOf="@+id/title_todo_main" />
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/realshadow"
+                    app:layout_constraintEnd_toEndOf="@+id/todo_move"
+                    app:layout_constraintStart_toStartOf="@+id/todo_move"
+                    app:layout_constraintTop_toBottomOf="@+id/todo_move" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -255,11 +289,11 @@
                 <ImageView
                     android:id="@+id/stats_move"
                     android:layout_width="match_parent"
-                    android:layout_height="230dp"
+                    android:layout_height="126dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_box"
+                    android:src="@drawable/shape_homebox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -269,7 +303,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="25dp"
                     android:fontFamily="@font/boldnanumsquareround"
                     android:text="오늘의 할 일"
                     android:textColor="@android:color/black"
@@ -286,6 +320,28 @@
                     app:layout_constraintBottom_toBottomOf="@+id/title_stats_main"
                     app:layout_constraintStart_toEndOf="@+id/title_stats_main"
                     app:layout_constraintTop_toTopOf="@+id/title_stats_main" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/realshadow"
+                    app:layout_constraintEnd_toEndOf="@+id/stats_move"
+                    app:layout_constraintStart_toStartOf="@+id/stats_move"
+                    app:layout_constraintTop_toBottomOf="@+id/stats_move" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="오늘 할 일이 아직 없어요 \n할 일을 추가해보세요!"
+                    android:textColor="#AFA8A8"
+                    app:layout_constraintStart_toStartOf="@+id/title_stats_main"
+                    app:layout_constraintTop_toBottomOf="@+id/title_stats_main" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

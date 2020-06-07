@@ -135,6 +135,8 @@ class HomeFragment : Fragment() {
 
     fun bringData(index: String){
 
+        memberslist.clear()
+
         val myJson = JSONObject()
         val requestBody = myJson.toString()
 
