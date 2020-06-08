@@ -15,5 +15,12 @@ class Global : Application() {
         //  choose room
         var roomlist = arrayListOf<RoomInfo>()
 
+        //  calendar startday endday
+        var calstartday = ""
+        var calendday = ""
+        var calremind = ""
+
+
+
     }
 }
