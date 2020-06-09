@@ -346,6 +346,41 @@ def join_room():
 
 
 
+@app.route("/leave_room")
+def leave_room():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    userid = request.args.get("userid")
+
+    checkquery = "select user1, user2, user3, user4, membercount from ROOMINFO where roomindex= '" + roomindex + "'"
+    con.cursor.execute(checkquery)
+    query_result = con.cursor.fetchall()
+
+    membercount = query_result[0][4]
+
+    if query_result[0][0] == userid:
+        mynumber = 1
+    elif query_result[0][1] == userid:
+        mynumber = 2
+    elif query_result[0][2] == userid:
+        mynumber = 3
+    else:
+        mynumber = 4
+
+    updatequery = "update ROOMINFO set user" + str(mynumber) + "= null, membercount = '" + str(membercount - 1) + "' where roomindex = '" + roomindex + "'"
+    con.cursor.execute(updatequery)
+    con.db.commit()
+
+    updatequery1 = "update USERINFO set lastroom = NULL where userid = '" + userid + "'"
+    con.cursor.execute(updatequery1)
+    con.db.commit()
+
+
+    con.close()
+    return jsonify({'result': 1})
+
+
+
 
 # #  초대 코드 업데이트
 # @app.route("/update_randomcode")

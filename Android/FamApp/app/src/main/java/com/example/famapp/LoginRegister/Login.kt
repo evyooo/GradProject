@@ -35,6 +35,9 @@ class Login : AppCompatActivity() {
             startActivity(intent)
 
         }
+        else if (myPreference.getUsername() != ""){
+            bring_index(myPreference.getUsername())
+        }
 
 
         //  키보드 숨기기
@@ -72,7 +75,6 @@ class Login : AppCompatActivity() {
 
                 var json_response = JSONObject(response)
                 if(json_response["result"].toString() == "1"){
-                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
 
                     myPreference = MyPreference(this)
                     myPreference.setUsername(userid)
@@ -130,6 +132,8 @@ class Login : AppCompatActivity() {
                     myPreference = MyPreference(this)
                     myPreference.setUsername(userid)
 
+                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+
                     bring_index(userid)
 
                 }else{
@@ -151,7 +155,6 @@ class Login : AppCompatActivity() {
 
         Volley.newRequestQueue(this).add(testRequest)
     }
-
 
 
 
