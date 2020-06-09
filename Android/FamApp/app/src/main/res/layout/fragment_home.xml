@@ -266,6 +266,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:text="본인을 포함한 멤버 수가 3명 이상이어야 \n홈화면에서 현황을 확인할 수 있어요"
                     android:textColor="#AFA8A8"
+                    android:textSize="14dp"
                     app:layout_constraintStart_toStartOf="@+id/title_todo_main"
                     app:layout_constraintTop_toBottomOf="@+id/title_todo_main" />
 
@@ -340,6 +341,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:text="오늘 할 일이 아직 없어요 \n할 일을 추가해보세요!"
                     android:textColor="#AFA8A8"
+                    android:textSize="14dp"
                     app:layout_constraintStart_toStartOf="@+id/title_stats_main"
                     app:layout_constraintTop_toBottomOf="@+id/title_stats_main" />
             </androidx.constraintlayout.widget.ConstraintLayout>

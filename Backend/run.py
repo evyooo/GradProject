@@ -177,8 +177,40 @@ def put_roomindex():
     return jsonify({'result': 1})
 
 
+@app.route("/get_userinfo")
+def get_userinfo():
+    con = Mysql()
+    userid = request.args.get("userid")
 
-#  마지막 접속 방 추가
+    query = "select name, birthday from USERINFO where userid = '" + userid + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    if (query_result):
+        result = {'result': 1, 'name': query_result[0][0], 'birthday': query_result[0][1]}
+    else:
+        result = {'result': -1}
+
+    con.close()
+    return jsonify(result)
+
+
+#  개인정보 수정 후 저장
+@app.route("/update_userinfo")
+def update_userinfo():
+    con = Mysql()
+    userid = request.args.get("userid")
+    name = request.args.get("name")
+    userpw = request.args.get("userpw")
+    birthday = request.args.get("birthday")
+
+    query = "update USERINFO set name = '" + name + "', userpw = '" + userpw + "', birthday = '" + birthday + "' where userid = '" + userid + "'"
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
 @app.route("/get_rooms")
 def get_rooms():
     con = Mysql()
