@@ -143,6 +143,20 @@ def get_roominfo():
     return jsonify(result)
 
 
+@app.route("/update_roominfo")
+def update_roominfo():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    roomtitle = request.args.get("title")
+    roomdes = request.args.get("des")
+
+    query = "update ROOMINFO set roomtitle = '" + roomtitle + "', roomdes = '" + roomdes + "' where roomindex = '" + roomindex + "'"
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
 
 #  마지막 접속 방 인덱스
 @app.route("/bring_roomindex")
