@@ -19,14 +19,14 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.core.util.rangeTo
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.famapp.forCalendar
 import kotlinx.android.synthetic.main.fragment_stats.*
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.Month
 import java.time.format.DateTimeFormatter
 import java.util.*
-
-
+import kotlin.collections.ArrayList
 
 
 /**
@@ -56,6 +56,7 @@ class CalendarFragment : Fragment() {
         }
 
         //  TODO
+        bringData()
 
 
         dialog_imageview_calendar.setOnClickListener {
@@ -223,4 +224,51 @@ class CalendarFragment : Fragment() {
 
     }
 
+
+    fun bringData(){
+
+        var basket = arrayListOf<forCalendar>()
+        var temp = forCalendar("", "", "", "")
+        basket.add(temp)
+        var test = Array(10, {basket})
+
+        Log.d("bringdata1", "${test[0].size} ${test[0][0].title}")
+
+
+        test[0][0] = forCalendar("1", "", "", "")
+
+        Log.d("bringdata2", "${test[0][0].title}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

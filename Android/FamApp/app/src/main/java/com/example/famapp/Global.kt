@@ -18,7 +18,8 @@ class Global : Application() {
         //  calendar startday endday
         var calstartday = ""
         var calendday = ""
-        var calremind = ""
+        var calremind = 0
+        var calcust = mutableListOf<String>()
 
 
 

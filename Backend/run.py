@@ -381,6 +381,26 @@ def leave_room():
 
 
 
+@app.route("/save_calendar")
+def save_calendar():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    color = request.args.get("color")
+    title = request.args.get("title")
+    startdate = request.args.get("startdate")
+    enddate = request.args.get("enddate")
+    remind = request.args.get("remind")
+    memo = request.args.get("memo")
+
+    query = """insert into CALENDAR (roomindex, color, title, startdate, enddate, remind, memo) 
+                    values (%s, %s, %s, %s, %s, %s, %s)"""
+    con.cursor.execute(query, (roomindex, color, title, startdate, enddate, remind, memo))
+    con.db.commit()
+    con.close()
+
+    return jsonify({'result': 1})
+
+
 
 # #  초대 코드 업데이트
 # @app.route("/update_randomcode")

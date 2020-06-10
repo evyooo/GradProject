@@ -9,6 +9,8 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.famapp.Global
+import com.example.famapp.Global.Companion.calcust
 import com.example.famapp.Global.Companion.calremind
 import com.example.famapp.R
 
@@ -21,16 +23,17 @@ class CalendarInside_custAdpater (val context: Context, val namelist: ArrayList<
         val check = view.findViewById<ImageView>(R.id.check_imageview_clistview)
         val each = view.findViewById<ConstraintLayout>(R.id.each_conslay_clistview)
 
+        calcust.clear()
+
         text.text = namelist[position]
-
-        var remindlist = arrayListOf("월요일마다", "화요일마다", "수요일마다", "목요일마다", "금요일마다", "토요일마다", "일요일마다")
-
 
         check.visibility = View.INVISIBLE
 
         each.setOnClickListener {
 
-            calremind = remindlist[position]
+            var remindlist = arrayListOf("월", "화", "수", "목", "금", "토", "일")
+
+            calcust.add(remindlist[position])
             check.visibility = View.VISIBLE
 
         }

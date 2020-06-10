@@ -29,13 +29,10 @@ class CalendarInside_remAdapter (val context: Context, val namelist: ArrayList<S
 
         check.visibility = View.INVISIBLE
 
-        var remindlist = arrayListOf("안함", "매일", "매주", "매월", "매년", "사용자화")
-
 
         each.setOnClickListener {
 
             if (position == namelist.size -1){
-
 
                 var intent = Intent(context, CalendarInside_customize::class.java)
                 context.startActivity(intent)
@@ -44,7 +41,7 @@ class CalendarInside_remAdapter (val context: Context, val namelist: ArrayList<S
                 check.visibility = View.VISIBLE
             }
 
-            calremind = remindlist[position]
+            calremind = position
 
         }
 

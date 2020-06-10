@@ -101,6 +101,8 @@
         android:id="@+id/color3_long_cinside"
         android:layout_width="14dp"
         android:layout_height="14dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/color_box_long"
         app:layout_constraintEnd_toEndOf="@+id/color_box_long"
         app:layout_constraintStart_toStartOf="@+id/color_box_long"
@@ -264,7 +266,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/memo_edittext_cinside"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"

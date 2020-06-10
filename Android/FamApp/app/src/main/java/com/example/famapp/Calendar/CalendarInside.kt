@@ -17,17 +17,28 @@ import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.famapp.Global
+import com.example.famapp.Global.Companion.basic_url
+import com.example.famapp.Global.Companion.calcust
 import com.example.famapp.Global.Companion.calendday
 import com.example.famapp.Global.Companion.calremind
 import com.example.famapp.Global.Companion.calstartday
+import com.example.famapp.MyPreference
 import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_calendar_inside.*
+import kotlinx.android.synthetic.main.activity_setting_room.*
 import kotlinx.android.synthetic.main.fragment_stats.*
+import org.json.JSONObject
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.coroutines.coroutineContext
 
 class CalendarInside : AppCompatActivity() {
+
+    lateinit var myPreference: MyPreference
 
     var colorflag = 0
     var colorchip = 0
@@ -43,6 +54,9 @@ class CalendarInside : AppCompatActivity() {
 
         calstartday = formatted
         calendday = formatted
+
+        calremind = 0
+        calcust.clear()
 
         startday_textview_cinside.text = calstartday
         endday_textview_cinside.text = calendday
@@ -93,9 +107,7 @@ class CalendarInside : AppCompatActivity() {
             if (colorflag == 0){
                 showLong()
             }
-
             colorflag = 1
-
         }
 
         color_box_long.setOnClickListener {
@@ -103,7 +115,6 @@ class CalendarInside : AppCompatActivity() {
             if (colorflag == 1){
                 showShort()
             }
-
             colorflag = 0
         }
 
@@ -128,138 +139,43 @@ class CalendarInside : AppCompatActivity() {
 
         }
 
-        //  시작일
-        startday_imageview_cinside.setOnClickListener {
-
-            val dialog = AlertDialog.Builder(this).create()
-            val edialog : LayoutInflater = LayoutInflater.from(this)
-            val mView : View = edialog.inflate(R.layout.dialog_datepicker3,null)
-
-            val year : NumberPicker = mView.findViewById(R.id.year_numberPicker_3)
-            val month : NumberPicker = mView.findViewById(R.id.month_numberPicker_3)
-            val day : NumberPicker = mView.findViewById(R.id.day_numberPicker_3)
 
 
-            //  순환 안되게 막기
-            year.wrapSelectorWheel = false
+        //  하루종일 스위치
+        allday_switch_cinside.setOnCheckedChangeListener{CompoundButton, onSwitch ->
 
-            //  editText 설정 해제
-            year.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+            if (onSwitch){
 
-            month.wrapSelectorWheel = false
-            month.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-
-
-            val cancel : Button = mView.findViewById(R.id.cancel_button_3)
-            val save : Button = mView.findViewById(R.id.save_button_3)
-
-
-            //  TODO ..  최대 최소 설정
-            year.minValue = 2019
-            year.maxValue = 2020
-
-            year.setDisplayedValues(arrayOf("2019년", "2020년"))
-
-
-            month.minValue = 1
-            month.maxValue = 12
-
-            month.setDisplayedValues(arrayOf("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"))
-
-            day.minValue = 1
-            day.maxValue = 30
-
-
-            dialog.setView(mView)
-            dialog.create()
-            dialog.show()
-
-
-            //  취소
-            cancel.setOnClickListener {
-                dialog.dismiss()
-                dialog.cancel()
-            }
-
-            //  완료
-            save.setOnClickListener {
-
-                calstartday = (year.value).toString() + "." + (month.value).toString() + "." + (day.value).toString()
-                startday_textview_cinside.text = calstartday
-
-                //  TODO ..  서버에 값 넘겨주고 불러오기
-
-                dialog.dismiss()
-                dialog.cancel()
-            }
-        }
-
-        //  종료일
-        endday_imageview_cinside.setOnClickListener {
-
-            val dialog = AlertDialog.Builder(this).create()
-            val edialog : LayoutInflater = LayoutInflater.from(this)
-            val mView : View = edialog.inflate(R.layout.dialog_datepicker3,null)
-
-            val year : NumberPicker = mView.findViewById(R.id.year_numberPicker_3)
-            val month : NumberPicker = mView.findViewById(R.id.month_numberPicker_3)
-            val day : NumberPicker = mView.findViewById(R.id.day_numberPicker_3)
-
-
-            //  순환 안되게 막기
-            year.wrapSelectorWheel = false
-
-            //  editText 설정 해제
-            year.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-
-            month.wrapSelectorWheel = false
-            month.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-
-
-            val cancel : Button = mView.findViewById(R.id.cancel_button_3)
-            val save : Button = mView.findViewById(R.id.save_button_3)
-
-
-            //  TODO ..  최대 최소 설정
-            year.minValue = 2019
-            year.maxValue = 2020
-
-            year.setDisplayedValues(arrayOf("2019년", "2020년"))
-
-
-            month.minValue = 1
-            month.maxValue = 12
-
-            month.setDisplayedValues(arrayOf("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"))
-
-            day.minValue = 1
-            day.maxValue = 30
-
-
-            dialog.setView(mView)
-            dialog.create()
-            dialog.show()
-
-
-            //  취소
-            cancel.setOnClickListener {
-                dialog.dismiss()
-                dialog.cancel()
-            }
-
-            //  완료
-            save.setOnClickListener {
-
-                calendday = (year.value).toString() + "." + (month.value).toString() + "." + (day.value).toString()
-
+                calendday = calstartday
                 endday_textview_cinside.text = calendday
 
-                //  TODO ..  서버에 값 넘겨주고 불러오기
+                startday_imageview_cinside.setOnClickListener(null)
+                endday_imageview_cinside.setOnClickListener(null)
 
-
-                dialog.dismiss()
-                dialog.cancel()
             }
+            else{
+
+                startday_imageview_cinside.setOnClickListener{
+                    startday()
+                }
+                endday_imageview_cinside.setOnClickListener{
+                    enddate()
+                }
+            }
+
+        }
+
+
+        //  시작일 다이얼로그
+        startday_imageview_cinside.setOnClickListener {
+            startday()
+        }
+
+
+
+        //  종료일 다이얼로그
+        endday_imageview_cinside.setOnClickListener {
+            enddate()
         }
 
         //  반복
@@ -268,32 +184,68 @@ class CalendarInside : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        //  취소
         cancel_button_cinside.setOnClickListener {
             finish()
         }
 
+
+        //  저장
         save_button_cinside.setOnClickListener {
-            finish()
+
+            myPreference = MyPreference(this)
+            var roomindex = myPreference.getRoomindex()
+
+            val title = title_edittext_cinside.text.toString()
+            var savecalremind = ""
+
+            if (calremind == 5){
+
+                for (each in calcust){
+                    savecalremind += each + " "
+                }
+            }
+            else{
+                savecalremind = calremind.toString()
+            }
+
+            val memo = memo_edittext_cinside.text.toString()
+
+
+            val myJson = JSONObject()
+            val requestBody = myJson.toString()
+
+            val login_url = basic_url + "save_calendar?roomindex=$roomindex&color=$colorchip&title=$title&startdate=$calstartday&enddate=$calendday&remind=$savecalremind&memo=$memo"
+
+            val testRequest = object : StringRequest(Method.GET, login_url,
+                Response.Listener { response ->
+
+                    var json_response = JSONObject(response)
+                    if(json_response["result"].toString() == "1"){
+
+                        Toast.makeText(this, "완료되었습니다.", Toast.LENGTH_SHORT).show()
+                        finish()
+
+                    }
+
+                }, Response.ErrorListener {
+                    Toast.makeText(this, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+                }) {
+                override fun getBodyContentType(): String {
+                    return "application/json; charset=utf-8"
+                }
+
+                override fun getBody(): ByteArray {
+                    return requestBody.toByteArray()
+                }
+            }
+
+            Volley.newRequestQueue(this).add(testRequest)
+
         }
 
-
-
-
-        //  TODO 더블탭 구현
-
-//        val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-//            override fun onDoubleTap(e: MotionEvent?): Boolean {
-//                Log.d("myApp", "double tap")
-//                return true
-//            }
-//            override fun onLongPress(e: MotionEvent?) {
-//                super.onLongPress(e)
-//                Log.d("dd","on long press")
-//
-//            }
-//        })
-//        title_textview_cinside.setOnTouchListener { _, event -> gestureDetector.onTouchEvent(event) }
-//
 
     }
 
@@ -304,9 +256,203 @@ class CalendarInside : AppCompatActivity() {
         startday_textview_cinside.text = calstartday
         endday_textview_cinside.text = calendday
 
+        var setremind : String
 
-        remind_textview_cinside.text = calremind
+        when(calremind){
+            0 -> setremind = "안함"
+            1 -> setremind = "매일"
+            2 -> setremind = "매주"
+            3 -> setremind = "매월"
+            4 -> setremind = "매년"
+            else -> {
+                setremind = checkCustom(calcust)
+            }
+        }
+
+        remind_textview_cinside.text = setremind
     }
+
+
+    fun startday(){
+
+        val dialog = AlertDialog.Builder(this).create()
+        val edialog : LayoutInflater = LayoutInflater.from(this)
+        val mView : View = edialog.inflate(R.layout.dialog_datepicker3,null)
+
+        val year : NumberPicker = mView.findViewById(R.id.year_numberPicker_3)
+        val month : NumberPicker = mView.findViewById(R.id.month_numberPicker_3)
+        val day : NumberPicker = mView.findViewById(R.id.day_numberPicker_3)
+
+
+        //  순환 안되게 막기
+        year.wrapSelectorWheel = false
+
+        //  editText 설정 해제
+        year.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+
+        month.wrapSelectorWheel = false
+        month.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+
+
+        val cancel : Button = mView.findViewById(R.id.cancel_button_3)
+        val save : Button = mView.findViewById(R.id.save_button_3)
+
+
+        //  TODO ..  최대 최소 설정
+        year.minValue = 2019
+        year.maxValue = 2020
+
+        year.setDisplayedValues(arrayOf("2019년", "2020년"))
+
+
+        month.minValue = 1
+        month.maxValue = 12
+
+        month.setDisplayedValues(arrayOf("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"))
+
+        day.minValue = 1
+        day.maxValue = 30
+
+
+        dialog.setView(mView)
+        dialog.create()
+        dialog.show()
+
+
+        //  취소
+        cancel.setOnClickListener {
+            dialog.dismiss()
+            dialog.cancel()
+        }
+
+        //  완료
+        save.setOnClickListener {
+
+            //  mm 형태로 맞춰주기
+            var savemonth = month.value.toString()
+
+            if (savemonth.length < 2){
+                savemonth = "0" + month.value
+            }
+
+            //  dd 형태로 맞춰주기
+            var saveday = day.value.toString()
+
+            if (saveday.length < 2){
+                saveday = "0" + day.value
+            }
+
+
+            calstartday = (year.value).toString() + "." + savemonth + "." + saveday
+
+            startday_textview_cinside.text = calstartday
+
+            dialog.dismiss()
+            dialog.cancel()
+        }
+
+    }
+
+
+    fun enddate(){
+
+
+        val dialog = AlertDialog.Builder(this).create()
+        val edialog : LayoutInflater = LayoutInflater.from(this)
+        val mView : View = edialog.inflate(R.layout.dialog_datepicker3,null)
+
+        val year : NumberPicker = mView.findViewById(R.id.year_numberPicker_3)
+        val month : NumberPicker = mView.findViewById(R.id.month_numberPicker_3)
+        val day : NumberPicker = mView.findViewById(R.id.day_numberPicker_3)
+
+
+        //  순환 안되게 막기
+        year.wrapSelectorWheel = false
+
+        //  editText 설정 해제
+        year.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+
+        month.wrapSelectorWheel = false
+        month.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+
+
+        val cancel : Button = mView.findViewById(R.id.cancel_button_3)
+        val save : Button = mView.findViewById(R.id.save_button_3)
+
+
+        //  TODO ..  최대 최소 설정
+        year.minValue = 2019
+        year.maxValue = 2020
+
+        year.setDisplayedValues(arrayOf("2019년", "2020년"))
+
+
+        month.minValue = 1
+        month.maxValue = 12
+
+        month.setDisplayedValues(arrayOf("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"))
+
+        day.minValue = 1
+        day.maxValue = 30
+
+
+        dialog.setView(mView)
+        dialog.create()
+        dialog.show()
+
+
+        //  취소
+        cancel.setOnClickListener {
+            dialog.dismiss()
+            dialog.cancel()
+        }
+
+        //  완료
+        save.setOnClickListener {
+
+            //  mm 형태로 맞춰주기
+            var savemonth = month.value.toString()
+
+            if (savemonth.length < 2){
+                savemonth = "0" + month.value
+            }
+
+            //  dd 형태로 맞춰주기
+            var saveday = day.value.toString()
+
+            if (saveday.length < 2){
+                saveday = "0" + day.value
+            }
+
+
+            calendday = (year.value).toString() + "." + savemonth + "." + saveday
+
+            endday_textview_cinside.text = calendday
+
+            dialog.dismiss()
+            dialog.cancel()
+        }
+
+    }
+
+
+
+    fun checkCustom(mutableList: MutableList<String>) : String{
+
+        var str = ""
+
+        if (mutableList.size == 1){
+            str = mutableList[0] + "요일마다"
+        }
+        else{
+            for (each in mutableList){
+                str += each + " "
+            }
+        }
+
+        return str
+    }
+
 
     fun showLong(){
 
