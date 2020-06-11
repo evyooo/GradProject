@@ -14,10 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Calendar.CalendarInside_customize"
-            android:noHistory="true"/>
-        <activity android:name=".Calendar.CalendarInside_remind"
-            android:noHistory="true"/>
+        <activity android:name=".Calendar.CalendarInside_saved"></activity>
+        <activity
+            android:name=".Calendar.CalendarInside_customize"
+            android:noHistory="true" />
+        <activity
+            android:name=".Calendar.CalendarInside_remind"
+            android:noHistory="true" />
         <activity android:name=".Calendar.CalendarInside" />
         <activity android:name=".LoginRegister.ChooseRoom" />
         <activity android:name=".LoginRegister.JoinRoom" />

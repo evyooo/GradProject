@@ -12,13 +12,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
+        android:fontFamily="@font/regularnanumsquareround"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/listview"
+        android:textColor="@android:color/black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/listview_caldialog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/listview_caldialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plusicon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4C4C4"
+        app:layout_constraintBottom_toTopOf="@+id/listview_caldialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/listview_caldialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="59dp"
@@ -26,4 +49,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.famapp.Global
 import com.example.famapp.Global.Companion.basic_url
+import com.example.famapp.Global.Companion.calendarlist
+import com.example.famapp.Global.Companion.daylist
 import com.example.famapp.LoginRegister.Login
 import com.example.famapp.MyPreference
 import com.example.famapp.forCalendar
@@ -43,6 +45,7 @@ import kotlin.collections.ArrayList
 class CalendarFragment : Fragment() {
 
     lateinit var calendarAdapter: CalendarAdapter
+
     lateinit var myPreference: MyPreference
 
     override fun onCreateView(
@@ -56,12 +59,22 @@ class CalendarFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
+        //  오늘 날짜
+        val current = LocalDateTime.now()
+        drawCalendar(current.year.toString(), current.monthValue.toString())
+
+        year_textview_calendar.text = current.year.toString() + "년"
+        month_textview_calendar.text = current.monthValue.toString() + "월"
+
+
+        //  추가 버튼
         add_imageview_calendar.setOnClickListener {
             var intent = Intent(context, CalendarInside::class.java)
             startActivity(intent)
         }
 
 
+        //  날짜 변경
         dialog_imageview_calendar.setOnClickListener {
 
             val dialog = AlertDialog.Builder(context).create()
@@ -97,14 +110,9 @@ class CalendarFragment : Fragment() {
 
             month.setDisplayedValues(arrayOf("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"))
 
-
             dialog.setView(mView)
             dialog.create()
             dialog.show()
-
-
-//            var window = dialog.window
-//            window.setLayout(238 * , WindowManager.LayoutParams.WRAP_CONTENT)
 
 
             //  취소
@@ -119,34 +127,27 @@ class CalendarFragment : Fragment() {
                 year_textview_calendar.text = (year.value).toString() + "년"
                 month_textview_calendar.text = (month.value).toString() + "월"
 
-
-                //  TODO ..  서버에 값 넘겨주고 불러오기
-
+                //  서버에 날짜값 넘겨주고 달력 새로그리기
                 drawCalendar((year.value).toString(), (month.value).toString())
-                Log.d("", "${year.value} ${month.value}")
-
 
                 dialog.dismiss()
                 dialog.cancel()
             }
         }
 
-
-        //  날짜
-        val current = LocalDateTime.now()
-        drawCalendar(current.year.toString(), current.monthValue.toString())
-        Log.d("1", "${current.year}")
-
-        year_textview_calendar.text = current.year.toString() + "년"
-        month_textview_calendar.text = current.monthValue.toString() + "월"
-
-
-
-
     }
 
     fun drawCalendar(year: String, month: String){
 
+        calendarlist.clear()
+        daylist.clear()
+
+        myPreference = MyPreference(requireContext())
+        var roomindex = myPreference.getRoomindex()
+
+
+        //  TODO 윤년 고려 안함
+        //  한달이 총 며칠인지 설정
         var totalday = 0
 
         when (month.toInt()){
@@ -156,67 +157,61 @@ class CalendarFragment : Fragment() {
         }
 
 
-
-        var calendarlist = arrayListOf<ArrayList<forCalendar>>()
         for (i in 0..totalday - 1){
             var basket = arrayListOf<forCalendar>()
             calendarlist.add(basket)
 
         }
 
-//        var calendarlist = Array(totalday, {basket})
-
-        var daylist = arrayListOf<String>()
 
 
 
-
+        //  1~9월까지는 01~09로 바꿔줌
         var mon = month
 
         if (mon.length == 1){
             mon = "0" + mon
         }
 
+
         var inputdate = "${year}.${mon}"
+
+
+        //  요일에 따라 앞에 여백 삽입
         var date = "${year}${mon}01"
         var dateType = "yyyyMMdd"
 
         val dateFormat = SimpleDateFormat(dateType)
         val nDate = dateFormat.parse(date)
-
         val cal = Calendar.getInstance()
         cal.time = nDate
 
         val dayNum = cal.get(Calendar.DAY_OF_WEEK)
 
-
-        //  요일에 따라 앞에 여백 삽입
         if (dayNum != 1){
             for (i in 0 .. dayNum-2){
                 daylist.add("")
             }
-
         }
 
 
 
-
-
+        //  요일에 따라 앞에 여백 삽입
         for (i in 0..totalday-1){
             daylist.add("${i+1}")
         }
 
+
+
+        //  요일에 따라 뒤에 여백 삽입
         var date1 = "${year}${mon}${totalday}"
 
         val nDate1 = dateFormat.parse(date1)
-
         val cal1 = Calendar.getInstance()
         cal1.time = nDate1
 
         val dayNum1 = cal1.get(Calendar.DAY_OF_WEEK)
 
-
-        //  요일에 따라 뒤에 여백 삽입
         if (dayNum1 != 7){
             for (i in 0 .. 6-dayNum1){
                 daylist.add("")
@@ -224,15 +219,7 @@ class CalendarFragment : Fragment() {
         }
 
 
-
-
-
-
-        myPreference = MyPreference(requireContext())
-        var roomindex = myPreference.getRoomindex()
-
-
-
+        //  서버에서 일정데이터 가져오기
         val myJson = JSONObject()
         val requestBody = myJson.toString()
 
@@ -248,24 +235,18 @@ class CalendarFragment : Fragment() {
                     var arraysize = calresult.length()
 
 
-
                     for (i in 0..arraysize-1){
                         var tempwhole = calresult.getJSONObject(i)
 
-
-
                         var title = tempwhole.getString("title")
                         var colorchip = tempwhole.getString("color")
-
                         var startdate = tempwhole.getString("startdate")
                         var enddate = tempwhole.getString("enddate")
-
                         var remind = tempwhole.getString("remind")
+                        var calendarindex = tempwhole.getString("calendarindex")
 
 
-                        //  TODO
-
-
+                        //  TODO 이번달-다른달 하면 에러남 (blank관련)
 
                         //  시작일, 종료일 모두 이번달내 일 때
                         if (startdate.substring(0, 7) == inputdate && enddate.substring(0, 7) == inputdate){
@@ -273,7 +254,7 @@ class CalendarFragment : Fragment() {
                             //  사이 날짜 모두 가져오기
                             for (i in startdate.substring(8,10).toInt()..enddate.substring(8,10).toInt() ){
 
-                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate"))
+                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate", "$calendarindex"))
 
                             }
 
@@ -282,7 +263,7 @@ class CalendarFragment : Fragment() {
 
                             //  startdate ~ 월말
                             for (i in startdate.substring(8,10).toInt()..totalday){
-                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate"))
+                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate", "$calendarindex"))
                             }
 
                         }
@@ -290,7 +271,7 @@ class CalendarFragment : Fragment() {
                             //  월초 ~ enddate
 
                             for (i in 1..enddate.substring(8,10).toInt() ){
-                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate"))
+                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate", "$calendarindex"))
                             }
                         }
 
@@ -298,12 +279,10 @@ class CalendarFragment : Fragment() {
 
                 }
 
-                calendarAdapter = CalendarAdapter(requireContext(), dayNum-1, daylist, calendarlist)
+                calendarAdapter = CalendarAdapter(requireContext(), dayNum-1, daylist, calendarlist, month)
                 calendar_grid.adapter = calendarAdapter
 
-                for (i in 0..calendarlist.size-1){
-                    Log.d("calendarlist", "$i ${calendarlist[i].size}")
-                }
+
 
             }, Response.ErrorListener {
                 Toast.makeText(context, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
@@ -321,21 +300,8 @@ class CalendarFragment : Fragment() {
         Volley.newRequestQueue(requireContext()).add(testRequest)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
 
 
 

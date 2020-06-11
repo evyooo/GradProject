@@ -407,7 +407,7 @@ def get_calendar():
     roomindex = request.args.get("roomindex")
     date = request.args.get("date")
 
-    query = "select color, title, startdate, enddate, remind from CALENDAR where roomindex = '" + roomindex + "'"
+    query = "select color, title, startdate, enddate, remind, calendarindex from CALENDAR where roomindex = '" + roomindex + "'"
     con.cursor.execute(query)
     query_result = con.cursor.fetchall()
 
@@ -417,13 +417,56 @@ def get_calendar():
         for row in query_result:
             if row[2][:7] == date or row[3][:7] == date:
                 calinfo.append(
-                    {"color": row[0], "title": row[1], "startdate": row[2], "enddate": row[3], "remind": row[4]})
+                    {"color": row[0], "title": row[1], "startdate": row[2], "enddate": row[3], "remind": row[4], "calendarindex": row[5]})
         result = {'result': 1, 'calinfo': calinfo}
     else:
         result = {'result': -1}
 
     con.close()
     return jsonify(result)
+
+
+
+@app.route("/get_birthday")
+def get_birthday():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    month = request.args.get("month")
+
+    query = "select user1, user2, user3, user4 from ROOMINFO where roomindex = '" + roomindex + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    birthdayinfo = []
+
+    for i in range(4):
+        if query_result[0][i] != "null":
+            query1 = "select name, birthday from USERINFO where userid = '" + str(query_result[0][i]) + "'"
+            con.cursor.execute(query1)
+            query_result1 = con.cursor.fetchall()
+
+            # birthday = query_result1[0][1]
+            # if birthday[5:7] == month:
+                # birthdayinfo.append({"name": query_result1[0][0], "birthday": query_result1[0][1]})
+
+
+    return jsonify({"result": 1, "birthdayinfo": query_result[0][0]})
+
+
+
+@app.route("/delete_calendar")
+def delete_calendar():
+    con = Mysql()
+    calindex = request.args.get("calindex")
+
+    query = "delete from CALENDAR where calendarindex = '" + calindex + "'"
+
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+
+    return jsonify({'result': 1})
+
 
 
 

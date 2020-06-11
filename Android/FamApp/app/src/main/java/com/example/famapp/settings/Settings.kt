@@ -73,7 +73,6 @@ class Settings : AppCompatActivity() {
 
                 leaveRoom(userid, roomindex, dialog)
 
-
             }
 
             dialog.setView(mView)

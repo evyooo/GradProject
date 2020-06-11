@@ -21,6 +21,16 @@ class Global : Application() {
         var calremind = 0
         var calcust = mutableListOf<String>()
 
+        var calindex = ""
+
+        //  일정데이터가 들어갈 배열 초기화
+        var calendarlist = arrayListOf<ArrayList<forCalendar>>()
+
+        //  날짜데이터가 들어갈 배열 초기화
+        var daylist = arrayListOf<String>()
+
+        var parentpos = 0
+        var childpos = 0
 
 
     }

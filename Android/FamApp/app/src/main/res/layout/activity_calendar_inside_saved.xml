@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Calendar.CalendarInside_saved">
+
+
+        <ImageView
+            android:id="@+id/title_imageview_cinside"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/titlebar" />
+
+    <TextView
+        android:id="@+id/title_textview_cinside"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:maxLength="17"
+        android:textColor="@android:color/black"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/color_box_short"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_imageview_cinside" />
+
+        <ImageView
+            android:id="@+id/color_box_short"
+            android:layout_width="62dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/title_textview_cinside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/title_textview_cinside"
+            app:srcCompat="@drawable/choosecolor" />
+
+        <ImageView
+            android:id="@+id/colorshort_imageview_cinside"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/color_box_short"
+            app:layout_constraintStart_toStartOf="@+id/color_box_short"
+            app:layout_constraintTop_toTopOf="@+id/color_box_short"
+            app:srcCompat="@drawable/shape_stickerboard" />
+
+    <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="72dp"
+            android:fontFamily="@font/regularnanumsquareround"
+            android:text="하루 종일:"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_imageview_cinside" />
+
+        <Switch
+            android:id="@+id/allday_switch_cinside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView37"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView37" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/regularnanumsquareround"
+            android:text="시작:"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/textView37"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <TextView
+        android:id="@+id/startday_textview_cinside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:text="2020.02.03"
+        android:textColor="#B4B4B4"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView38"
+        app:layout_constraintEnd_toEndOf="@+id/allday_switch_cinside"
+        app:layout_constraintTop_toTopOf="@+id/textView38" />
+
+    <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/regularnanumsquareround"
+            android:text="종료:"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/textView38"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/endday_textview_cinside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:text="2020.03.09"
+        android:textColor="#B4B4B4"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView39"
+        app:layout_constraintEnd_toEndOf="@+id/startday_textview_cinside"
+        app:layout_constraintTop_toTopOf="@+id/textView39" />
+
+    <TextView
+            android:id="@+id/textView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/regularnanumsquareround"
+            android:text="반복:"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+    <TextView
+        android:id="@+id/remind_textview_cinside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:text="없음"
+        android:textColor="#B4B4B4"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView40"
+        app:layout_constraintEnd_toEndOf="@+id/endday_textview_cinside"
+        app:layout_constraintTop_toTopOf="@+id/textView40" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:text="메모"
+        android:textColor="#ACACAC"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <ImageView
+        android:id="@+id/delete_imageview"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/title_imageview_cinside"
+        app:layout_constraintTop_toTopOf="@+id/title_imageview_cinside"
+        app:srcCompat="@drawable/delete" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

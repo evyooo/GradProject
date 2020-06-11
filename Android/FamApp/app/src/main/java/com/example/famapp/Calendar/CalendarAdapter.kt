@@ -2,19 +2,19 @@ package com.example.famapp.Calendar
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.famapp.R
 import com.example.famapp.forCalendar
 
-class CalendarAdapter(var context: Context, var startblank: Int, var datelist: ArrayList<String>, var arrayList: ArrayList<ArrayList<forCalendar>>): BaseAdapter(){
+class CalendarAdapter(var context: Context, var startblank: Int, var datelist: ArrayList<String>, var arrayList: ArrayList<ArrayList<forCalendar>>, var month: String): BaseAdapter(){
+
+    lateinit var listviewAdapter: listviewAdapter
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
@@ -45,8 +45,6 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
 
         if (datelist[position] != ""){
 
-            Log.d("size", "$position $startblank ${arrayList[position-startblank].size}")
-
             if (arrayList[position-startblank].size != 0){
                 //  가져오기
 
@@ -58,7 +56,7 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
 
                 for (i in 0..until){
                     boxlist[i].visibility = View.VISIBLE
-                    boxlist[i].setText("${arrayList[position - startblank][0].title}")
+                    boxlist[i].setText("${arrayList[position - startblank][i].title}")
 //                    boxlist[i].setBackgroundColor("${arrayList[position][0].color}")
 
                 }
@@ -73,13 +71,30 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
                 //  todo
 //            circle.visibility = View.VISIBLE
 
-                val dialog = AlertDialog.Builder(context)
+                val dialog = AlertDialog.Builder(context).create()
                 val edialog : LayoutInflater = LayoutInflater.from(context)
                 val mView : View = edialog.inflate(R.layout.layout_dialog_calendar,null)
 
                 val date : TextView = mView.findViewById(R.id.textView50)
+                val plus: ImageView = mView.findViewById(R.id.imageView20)
+
+                date.text = "${month}월 ${datelist[position]}일"
+
+                var listview : ListView = mView.findViewById(R.id.listview_caldialog)
+
+                listviewAdapter = listviewAdapter(context, arrayList, position-startblank, dialog)
+                listview.adapter = listviewAdapter
 
 
+                plus.setOnClickListener {
+
+                    var intent = Intent(context, CalendarInside::class.java)
+                    context.startActivity(intent)
+
+                    dialog.dismiss()
+                    dialog.cancel()
+
+                }
 
                 dialog.setView(mView)
                 dialog.create()
