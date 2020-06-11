@@ -19,8 +19,16 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.core.util.rangeTo
 import androidx.recyclerview.widget.GridLayoutManager
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.famapp.Global
+import com.example.famapp.Global.Companion.basic_url
+import com.example.famapp.LoginRegister.Login
+import com.example.famapp.MyPreference
 import com.example.famapp.forCalendar
 import kotlinx.android.synthetic.main.fragment_stats.*
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.Month
@@ -35,9 +43,7 @@ import kotlin.collections.ArrayList
 class CalendarFragment : Fragment() {
 
     lateinit var calendarAdapter: CalendarAdapter
-
-    var calendarlist = arrayListOf("")
-
+    lateinit var myPreference: MyPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,9 +60,6 @@ class CalendarFragment : Fragment() {
             var intent = Intent(context, CalendarInside::class.java)
             startActivity(intent)
         }
-
-        //  TODO
-        bringData()
 
 
         dialog_imageview_calendar.setOnClickListener {
@@ -83,10 +86,10 @@ class CalendarFragment : Fragment() {
 
 
             //  TODO ..  최대 최소 설정
-            year.minValue = 2019
+            year.minValue = 2020
             year.maxValue = 2020
 
-            year.setDisplayedValues(arrayOf("2019년", "2020년"))
+            year.setDisplayedValues(arrayOf("2020년"))
 
 
             month.minValue = 1
@@ -140,16 +143,33 @@ class CalendarFragment : Fragment() {
 
 
 
-
-
-
     }
 
     fun drawCalendar(year: String, month: String){
 
-        calendarlist.clear()
+        var totalday = 0
 
-        Log.d("", "$year $month")
+        when (month.toInt()){
+            1, 3, 5, 7, 8, 10, 12 -> totalday = 31
+            4, 6, 9, 11 -> totalday = 30
+            2 -> totalday = 28
+        }
+
+
+
+        var calendarlist = arrayListOf<ArrayList<forCalendar>>()
+        for (i in 0..totalday - 1){
+            var basket = arrayListOf<forCalendar>()
+            calendarlist.add(basket)
+
+        }
+
+//        var calendarlist = Array(totalday, {basket})
+
+        var daylist = arrayListOf<String>()
+
+
+
 
         var mon = month
 
@@ -157,7 +177,7 @@ class CalendarFragment : Fragment() {
             mon = "0" + mon
         }
 
-
+        var inputdate = "${year}.${mon}"
         var date = "${year}${mon}01"
         var dateType = "yyyyMMdd"
 
@@ -173,30 +193,18 @@ class CalendarFragment : Fragment() {
         //  요일에 따라 앞에 여백 삽입
         if (dayNum != 1){
             for (i in 0 .. dayNum-2){
-                calendarlist.add("")
+                daylist.add("")
             }
+
         }
 
 
 
 
-
-
-        var totalday = 0
-
-
-
-        when (month.toInt()){
-            1, 3, 5, 7, 8, 10, 12 -> totalday = 31
-            4, 6, 9, 11 -> totalday = 30
-            2 -> totalday = 28
-        }
 
         for (i in 0..totalday-1){
-            calendarlist.add("${i+1}")
+            daylist.add("${i+1}")
         }
-
-
 
         var date1 = "${year}${mon}${totalday}"
 
@@ -206,58 +214,130 @@ class CalendarFragment : Fragment() {
         cal1.time = nDate1
 
         val dayNum1 = cal1.get(Calendar.DAY_OF_WEEK)
-        
+
 
         //  요일에 따라 뒤에 여백 삽입
         if (dayNum1 != 7){
             for (i in 0 .. 6-dayNum1){
-                calendarlist.add("")
+                daylist.add("")
             }
         }
 
 
 
-        calendarAdapter = CalendarAdapter(requireContext(), calendarlist)
-        calendar_grid.adapter = calendarAdapter
+
+
+
+        myPreference = MyPreference(requireContext())
+        var roomindex = myPreference.getRoomindex()
+
+
+
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val url = basic_url + "get_calendar?roomindex=$roomindex&date=$inputdate"
+
+        val testRequest = object : StringRequest(Method.GET, url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+                if(json_response["result"].toString() == "1"){
+
+                    var calresult = json_response.getJSONArray("calinfo")
+                    var arraysize = calresult.length()
+
+
+
+                    for (i in 0..arraysize-1){
+                        var tempwhole = calresult.getJSONObject(i)
+
+
+
+                        var title = tempwhole.getString("title")
+                        var colorchip = tempwhole.getString("color")
+
+                        var startdate = tempwhole.getString("startdate")
+                        var enddate = tempwhole.getString("enddate")
+
+                        var remind = tempwhole.getString("remind")
+
+
+                        //  TODO
+
+
+
+                        //  시작일, 종료일 모두 이번달내 일 때
+                        if (startdate.substring(0, 7) == inputdate && enddate.substring(0, 7) == inputdate){
+
+                            //  사이 날짜 모두 가져오기
+                            for (i in startdate.substring(8,10).toInt()..enddate.substring(8,10).toInt() ){
+
+                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate"))
+
+                            }
+
+                        }
+                        else if (startdate.substring(0, 7) == inputdate){
+
+                            //  startdate ~ 월말
+                            for (i in startdate.substring(8,10).toInt()..totalday){
+                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate"))
+                            }
+
+                        }
+                        else{
+                            //  월초 ~ enddate
+
+                            for (i in 1..enddate.substring(8,10).toInt() ){
+                                calendarlist[i-1].add(forCalendar("$title", "$colorchip", "$startdate", "$enddate"))
+                            }
+                        }
+
+                    }
+
+                }
+
+                calendarAdapter = CalendarAdapter(requireContext(), dayNum-1, daylist, calendarlist)
+                calendar_grid.adapter = calendarAdapter
+
+                for (i in 0..calendarlist.size-1){
+                    Log.d("calendarlist", "$i ${calendarlist[i].size}")
+                }
+
+            }, Response.ErrorListener {
+                Toast.makeText(context, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(requireContext()).add(testRequest)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     }
 
 
-    fun bringData(){
-
-        var basket = arrayListOf<forCalendar>()
-        var temp = forCalendar("", "", "", "")
-        basket.add(temp)
-        var test = Array(10, {basket})
-
-        Log.d("bringdata1", "${test[0].size} ${test[0][0].title}")
-
-
-        test[0][0] = forCalendar("1", "", "", "")
-
-        Log.d("bringdata2", "${test[0][0].title}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
 
 }
 

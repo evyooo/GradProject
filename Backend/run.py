@@ -401,6 +401,31 @@ def save_calendar():
     return jsonify({'result': 1})
 
 
+@app.route("/get_calendar")
+def get_calendar():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    date = request.args.get("date")
+
+    query = "select color, title, startdate, enddate, remind from CALENDAR where roomindex = '" + roomindex + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    calinfo = []
+
+    if (query_result):
+        for row in query_result:
+            if row[2][:7] == date or row[3][:7] == date:
+                calinfo.append(
+                    {"color": row[0], "title": row[1], "startdate": row[2], "enddate": row[3], "remind": row[4]})
+        result = {'result': 1, 'calinfo': calinfo}
+    else:
+        result = {'result': -1}
+
+    con.close()
+    return jsonify(result)
+
+
 
 # #  초대 코드 업데이트
 # @app.route("/update_randomcode")

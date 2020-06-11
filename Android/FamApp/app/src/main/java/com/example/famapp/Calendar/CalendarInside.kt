@@ -380,7 +380,7 @@ class CalendarInside : AppCompatActivity() {
         val save : Button = mView.findViewById(R.id.save_button_3)
 
 
-        //  TODO ..  최대 최소 설정
+        //  TODO ..  최대 최소 설정 / 끝날짜가 시작날짜보다 앞일경우
         year.minValue = 2019
         year.maxValue = 2020
 
