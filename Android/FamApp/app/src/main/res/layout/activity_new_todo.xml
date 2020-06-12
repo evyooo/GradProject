@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/outer_layout_newtodo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".todo.NewTodo">
 
     <ImageView
@@ -52,28 +53,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/regularnanumsquareround"
         android:text="날짜:"
         android:textColor="@android:color/black"
         android:textSize="15dp"
-        android:fontFamily="@font/regularnanumsquareround"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputtitle_edittext_newtodo" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/duedate_textview_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/boldnanumsquareround"
         android:text="TextView"
         android:textColor="#BFBFBF"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintBottom_toTopOf="@+id/score_imageview_newtodo"
+        app:layout_constraintEnd_toStartOf="@+id/date_imageview_newtodo"
+        app:layout_constraintTop_toTopOf="@+id/date_imageview_newtodo" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/date_imageview_newtodo"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="10dp"
@@ -95,19 +96,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/score_textview_newtodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/boldnanumsquareround"
         android:text="없음"
         android:textColor="#BFBFBF"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintBottom_toTopOf="@+id/repeat_imageview_newtodo"
+        app:layout_constraintEnd_toStartOf="@+id/score_imageview_newtodo"
+        app:layout_constraintTop_toTopOf="@+id/score_imageview_newtodo" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/score_imageview_newtodo"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="10dp"
@@ -129,19 +130,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/repeat_textview_newtodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/boldnanumsquareround"
         android:text="안함"
         android:textColor="#BFBFBF"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:layout_constraintBottom_toBottomOf="@+id/repeat_imageview_newtodo"
+        app:layout_constraintEnd_toStartOf="@+id/repeat_imageview_newtodo"
+        app:layout_constraintTop_toTopOf="@+id/repeat_imageview_newtodo" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/repeat_imageview_newtodo"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="10dp"
@@ -178,6 +179,28 @@
             android:textColor="@android:color/white"
             android:textSize="17dp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/regularnanumsquareround"
+        android:text="날짜 설정"
+        android:textColor="@android:color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputtitle_edittext_newtodo" />
+
+    <Switch
+        android:id="@+id/datebool_switch_newtodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -127,12 +127,11 @@ class Login : AppCompatActivity() {
 
                 var json_response = JSONObject(response)
                 if(json_response["result"].toString() == "1"){
-                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
 
                     myPreference = MyPreference(this)
                     myPreference.setUsername(userid)
 
-                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "로그인 성공 $userid", Toast.LENGTH_SHORT).show()
 
                     bring_index(userid)
 

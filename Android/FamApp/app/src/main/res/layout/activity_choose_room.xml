@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/design_40circle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/select2_conslay_diatodo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintStart_toStartOf="@+id/select2_conslay_diatodo"
+        app:layout_constraintTop_toBottomOf="@+id/select2_conslay_diatodo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

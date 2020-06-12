@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <TextView
@@ -25,10 +26,54 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
         android:src="@drawable/icon_fixed_default"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date_textview_todolay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/regularnanumsquareround"
+        android:text="TextView"
+        android:textColor="#C5C5C5"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="@+id/title_textview_todolay"
+        app:layout_constraintTop_toBottomOf="@+id/title_textview_todolay" />
+
+    <ImageView
+        android:id="@+id/repeat_imageview_todolay"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_textview_todolay"
+        app:layout_constraintStart_toEndOf="@+id/date_textview_todolay"
+        app:layout_constraintTop_toTopOf="@+id/date_textview_todolay"
+        app:srcCompat="@drawable/refresh" />
+
+    <TextView
+        android:id="@+id/score_textview_todolay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/regularnanumsquareround"
+        android:text="TextView"
+        android:textColor="#C5C5C5"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/date_textview_todolay"
+        app:layout_constraintTop_toBottomOf="@+id/date_textview_todolay" />
+
+    <TextView
+        android:id="@+id/doneby_textview_todolay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:text="TextView"
+        android:textColor="#9BABDC"
+        android:textSize="12dp"
+        app:layout_constraintStart_toEndOf="@+id/title_textview_todolay"
+        app:layout_constraintTop_toTopOf="@+id/title_textview_todolay" />
 </androidx.constraintlayout.widget.ConstraintLayout>

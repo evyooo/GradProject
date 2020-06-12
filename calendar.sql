@@ -1,4 +1,5 @@
 create table CALENDAR(
+	calendarindex int auto_increment primary key,
 	roomindex int,
 	color text,
 	title text,
