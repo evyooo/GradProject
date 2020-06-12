@@ -22,6 +22,10 @@ class Global : Application() {
         var calcust = mutableListOf<String>()
 
         var calindex = ""
+        var caldate = ""
+
+        var calcurrentyr = ""
+        var calcurrentmon = ""
 
         //  일정데이터가 들어갈 배열 초기화
         var calendarlist = arrayListOf<ArrayList<forCalendar>>()
@@ -31,6 +35,10 @@ class Global : Application() {
 
         var parentpos = 0
         var childpos = 0
+
+
+        var newtodo_repeat = arrayListOf(0, 0, 0, 0, 0, 0, 0, 0)
+        var newtodo_score = 3
 
 
     }

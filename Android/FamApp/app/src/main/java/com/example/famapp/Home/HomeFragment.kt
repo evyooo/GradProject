@@ -117,9 +117,8 @@ class HomeFragment : Fragment() {
         todaydate_textview_main.text = "$formatted ($dayOfWeek)"
 
 
-        //bringData(userid)
-
-
+        //  일정 가져오기
+        bringCal()
 
 
         //  이동
@@ -184,6 +183,14 @@ class HomeFragment : Fragment() {
 
         Volley.newRequestQueue(context).add(testRequest)
 
+
+    }
+
+    fun bringCal(){
+
+
+
+        thisweek_textview_home.text = ""
 
     }
 

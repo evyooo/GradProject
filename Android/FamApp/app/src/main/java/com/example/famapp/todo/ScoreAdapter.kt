@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.famapp.Calendar.CalendarInside_saved
 import com.example.famapp.Global
+import com.example.famapp.Global.Companion.newtodo_score
 import com.example.famapp.R
 import com.example.famapp.forCalendar
 
@@ -31,10 +32,12 @@ class ScoreAdapter (val context: Context?, var dialog: ArrayList<String>) : Base
 
         var flag = 0
 
+        //  TODO 다중 선택 안막음
         each.setOnClickListener {
             if (flag == 0){
                 check.visibility = View.VISIBLE
                 flag = 1
+                newtodo_score = position
             }
             else{
                 check.visibility = View.INVISIBLE

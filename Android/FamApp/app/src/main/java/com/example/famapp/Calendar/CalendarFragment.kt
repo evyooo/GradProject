@@ -24,6 +24,9 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.famapp.Global
 import com.example.famapp.Global.Companion.basic_url
+import com.example.famapp.Global.Companion.calcurrentmon
+import com.example.famapp.Global.Companion.calcurrentyr
+import com.example.famapp.Global.Companion.caldate
 import com.example.famapp.Global.Companion.calendarlist
 import com.example.famapp.Global.Companion.daylist
 import com.example.famapp.LoginRegister.Login
@@ -69,6 +72,8 @@ class CalendarFragment : Fragment() {
 
         //  추가 버튼
         add_imageview_calendar.setOnClickListener {
+
+            caldate = ""
             var intent = Intent(context, CalendarInside::class.java)
             startActivity(intent)
         }
@@ -164,8 +169,6 @@ class CalendarFragment : Fragment() {
         }
 
 
-
-
         //  1~9월까지는 01~09로 바꿔줌
         var mon = month
 
@@ -173,6 +176,8 @@ class CalendarFragment : Fragment() {
             mon = "0" + mon
         }
 
+        calcurrentyr = year
+        calcurrentmon = mon
 
         var inputdate = "${year}.${mon}"
 

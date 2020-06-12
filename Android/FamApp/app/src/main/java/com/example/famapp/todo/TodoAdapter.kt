@@ -36,18 +36,23 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         doneby.visibility = View.GONE
 
         val todo = todolist[position]
+
         title.text = todo.title
         datetv.text = todo.duedate
-        score.text = todo.score
+
+        var scorelist = arrayListOf("없음", "하 - 1점 획득", "중 - 2점 획득", "상 - 3점 획득")
+        score.text  = scorelist[todo.score.toInt()]
+
 
         if (todo.duedate == ""){
             datetv.visibility = View.GONE
             repeat.visibility = View.GONE
         }
 
-        if (todo.score == ""){
+        if (todo.score == "0"){
             score.visibility = View.GONE
         }
+
 
 
 
@@ -55,7 +60,6 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         val current = LocalDateTime.now()
 
 
-        //  add
 
         //  체크박스
         var flag = 0 //  TODO flag도 db에 저장된거로 바꾸기

@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley
 import com.example.famapp.Global
 import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.Global.Companion.calcust
+import com.example.famapp.Global.Companion.caldate
 import com.example.famapp.Global.Companion.calendday
 import com.example.famapp.Global.Companion.calremind
 import com.example.famapp.Global.Companion.calstartday
@@ -52,8 +53,12 @@ class CalendarInside : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("YYYY.MM.dd")
         val formatted = current.format(formatter)
 
-        calstartday = formatted
-        calendday = formatted
+        if (caldate == ""){
+            caldate = formatted
+        }
+
+        calstartday = caldate
+        calendday = caldate
 
         calremind = 0
         calcust.clear()

@@ -5,7 +5,6 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
     android:orientation="vertical">
 
     <TextView
@@ -56,12 +55,10 @@
         android:id="@+id/score_textview_todolay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:fontFamily="@font/regularnanumsquareround"
         android:text="TextView"
         android:textColor="#C5C5C5"
         android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/date_textview_todolay"
         app:layout_constraintTop_toBottomOf="@+id/date_textview_todolay" />
 
@@ -76,4 +73,13 @@
         android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@+id/title_textview_todolay"
         app:layout_constraintTop_toTopOf="@+id/title_textview_todolay" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintStart_toStartOf="@+id/score_textview_todolay"
+        app:layout_constraintTop_toBottomOf="@+id/score_textview_todolay"
+        app:srcCompat="@android:color/transparent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

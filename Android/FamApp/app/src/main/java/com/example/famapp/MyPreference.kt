@@ -4,7 +4,7 @@ import android.content.Context
 
 class MyPreference(context: Context){
 
-    val Preference_name = ""
+    val Preference_name = "name"
     val Preference_room = ""
 
     val preference = context.getSharedPreferences(Preference_name, Context.MODE_PRIVATE)

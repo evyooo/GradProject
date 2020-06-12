@@ -10,15 +10,28 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.NumberPicker
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.famapp.Global
+import com.example.famapp.Global.Companion.basic_url
+import com.example.famapp.Global.Companion.newtodo_repeat
+import com.example.famapp.Global.Companion.newtodo_score
+import com.example.famapp.MyPreference
 import com.example.famapp.R
 import kotlinx.android.synthetic.main.activity_calendar_inside.*
 import kotlinx.android.synthetic.main.activity_new_todo.*
 import kotlinx.android.synthetic.main.activity_setting_room.*
+import org.json.JSONObject
 import java.time.LocalDateTime
 
 class NewTodo : AppCompatActivity() {
+
+    lateinit var myPreference: MyPreference
+
+    var duedate = "날짜 설정 안함"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +43,6 @@ class NewTodo : AppCompatActivity() {
             hideKeyboard()
         }
 
-
-        //  현재 날짜 설정
-        val current = LocalDateTime.now()
-        duedate_textview_imageview.text = "${current.year}.${current.monthValue}.${current.dayOfMonth}"
 
 
         //  스위치 꺼져있으면 날짜 설정 못함
@@ -50,22 +59,14 @@ class NewTodo : AppCompatActivity() {
         }
 
 
-        //  TODO
-        score_textview_newtodo.text = ""
-        repeat_textview_newtodo.text = ""
 
-
-
-        //  날짜 다이얼로그
-        date_imageview_newtodo.setOnClickListener {
-            dateDialog()
-        }
 
         //  난이도 설정
         score_imageview_newtodo.setOnClickListener {
             var intent = Intent(this, NewTodo_score::class.java)
             startActivity(intent)
         }
+
 
         //  반복
         repeat_imageview_newtodo.setOnClickListener {
@@ -79,18 +80,98 @@ class NewTodo : AppCompatActivity() {
             finish()
         }
 
+
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+
+        myPreference = MyPreference(this)
+        var roomindex = myPreference.getRoomindex()
+
+
+
+        var repeatlist = arrayListOf("월", "화", "수", "목", "금", "토", "일", "반복 없음")
+        var scorelist = arrayListOf("상 - 3점 획득", "중 - 2점 획득", "하 - 1점 획득", "없음")
+
+        var repeatstr = ""
+        for (i in 0..newtodo_repeat.size -1){
+            if (newtodo_repeat[i] == 1){
+                repeatstr = repeatstr + repeatlist[i] + " "
+            }
+        }
+        if (repeatlist.size == 0){
+            repeatstr = "반복 없음"
+        }
+
+        var scoreint = 0
+
+        when (newtodo_score){
+            0 -> scoreint = 3
+            1 -> scoreint = 2
+            2 -> scoreint = 1
+            3 -> scoreint = 0
+        }
+
+
+        duedate_textview_imageview.text = duedate
+
+        score_textview_newtodo.text = "${scorelist[newtodo_score]}"
+        repeat_textview_newtodo.text = repeatstr
+
+
         //  저장
         save_button_newtodo.setOnClickListener {
+
             var title = inputtitle_edittext_newtodo.text.toString()
+            var remind = newtodo_repeat.toString()
+
+            var inputdate = duedate
+
+            if (inputdate == "날짜 설정 안함"){
+                inputdate = ""
+            }
 
 
-            //  TODO 저장
+            val myJson = JSONObject()
+            val requestBody = myJson.toString()
+
+            val login_url =
+                basic_url + "put_todo?roomindex=$roomindex&title=$title&duedate=$inputdate&score=$scoreint&remind=$remind"
+
+            val testRequest = object : StringRequest(Method.GET, login_url,
+                Response.Listener { response ->
+
+                    var json_response = JSONObject(response)
+                    if (json_response["result"].toString() == "1") {
+
+                        Toast.makeText(this, "성공적으로 등록되었습니다.", Toast.LENGTH_SHORT).show()
+
+                        finish()
+                    }
+
+                }, Response.ErrorListener {
+                    Toast.makeText(this, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+                }) {
+                override fun getBodyContentType(): String {
+                    return "application/json; charset=utf-8"
+                }
+
+                override fun getBody(): ByteArray {
+                    return requestBody.toByteArray()
+                }
+            }
+
+            Volley.newRequestQueue(this).add(testRequest)
 
         }
 
 
-
     }
+
+
 
     fun dateDialog(){
 
@@ -160,10 +241,8 @@ class NewTodo : AppCompatActivity() {
             dialog.dismiss()
             dialog.cancel()
 
-            //  TODO 서버 저장
-
-            duedate_textview_imageview.text = "${year.value}.${month.value}.${day.value}"
-
+            duedate = "${year.value}.${month.value}.${day.value}"
+            duedate_textview_imageview.text = duedate
         }
 
         dialog.setView(mView)

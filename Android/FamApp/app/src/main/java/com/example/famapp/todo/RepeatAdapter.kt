@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.famapp.Global.Companion.newtodo_repeat
 import com.example.famapp.R
 
 class RepeatAdapter (val context: Context?, var dialog: ArrayList<String>) : BaseAdapter(){
@@ -30,10 +31,12 @@ class RepeatAdapter (val context: Context?, var dialog: ArrayList<String>) : Bas
             if (flag == 0){
                 check.visibility = View.VISIBLE
                 flag = 1
+                newtodo_repeat[position] = 1
             }
             else{
                 check.visibility = View.INVISIBLE
                 flag = 0
+                newtodo_repeat[position] = 0
             }
 
         }

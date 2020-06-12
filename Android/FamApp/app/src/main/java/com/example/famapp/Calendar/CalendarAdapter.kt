@@ -11,8 +11,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import com.example.famapp.Global.Companion.calcurrentmon
+import com.example.famapp.Global.Companion.calcurrentyr
+import com.example.famapp.Global.Companion.caldate
 import com.example.famapp.R
 import com.example.famapp.forCalendar
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CalendarAdapter(var context: Context, var startblank: Int, var datelist: ArrayList<String>, var arrayList: ArrayList<ArrayList<forCalendar>>, var month: String): BaseAdapter(){
 
@@ -39,7 +44,22 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
         var boxlist = arrayOf(box1, box2, box3, box4)
         var boxtextlist = arrayOf(text1, text2, text3, text4)
 
-        circle.visibility = View.INVISIBLE
+
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("YYYY.MM.dd")
+        val formatted = current.format(formatter)
+
+        //  오늘에 동그라미 띄우기
+        if ("$calcurrentyr.$calcurrentmon.${datelist[position]}" == formatted){
+            circle.visibility = View.VISIBLE
+            date.setTextColor(context.getColor(R.color.white))
+        }
+        else{
+            circle.visibility = View.INVISIBLE
+            date.setTextColor(context.getColor(R.color.black))
+        }
+
+
 
         date.text = datelist[position]
 
@@ -116,6 +136,12 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
 
                     var intent = Intent(context, CalendarInside::class.java)
                     context.startActivity(intent)
+
+                    if (month.length < 2){
+                        month = "0$month"
+                    }
+
+                    caldate = "2020.${month}.${datelist[position]}"
 
                     dialog.dismiss()
                     dialog.cancel()

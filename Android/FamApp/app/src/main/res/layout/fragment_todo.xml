@@ -23,76 +23,141 @@
             android:layout_marginTop="14dp"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button2"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter1_conslay"
                 android:layout_width="56dp"
                 android:layout_height="36dp"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/filter_default"
-                android:fontFamily="@font/regularnanumsquareround"
-                android:text="전체"
-                android:textColor="@android:color/black"
-                android:textSize="13dp" />
+                android:background="@drawable/fileter_selected">
 
-            <Button
-                android:id="@+id/button3"
+                <TextView
+                    android:id="@+id/filter1_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="전체"
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter2_conslay"
                 android:layout_width="56dp"
                 android:layout_height="36dp"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="6dp"
                 android:layout_weight="1"
-                android:background="@drawable/filter_default"
-                android:fontFamily="@font/regularnanumsquareround"
-                android:text="오늘"
-                android:textColor="@android:color/black"
-                android:textSize="13dp" />
+                android:background="@drawable/filter_default">
 
-            <Button
-                android:id="@+id/button4"
+                <TextView
+                    android:id="@+id/filter2_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:text="오늘"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter3_conslay"
                 android:layout_width="61dp"
                 android:layout_height="36dp"
-                android:layout_marginLeft="11dp"
-                android:background="@drawable/filter_default"
-                android:fontFamily="@font/regularnanumsquareround"
-                android:text="이번주"
-                android:textColor="@android:color/black"
-                android:textSize="13dp" />
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/filter_default">
 
-            <Button
-                android:id="@+id/button5"
+
+                <TextView
+                    android:id="@+id/filter3_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이번주"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter4_conslay"
                 android:layout_width="56dp"
                 android:layout_height="36dp"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="6dp"
                 android:layout_weight="1"
-                android:background="@drawable/filter_default"
-                android:fontFamily="@font/regularnanumsquareround"
-                android:text="과거"
-                android:textColor="@android:color/black"
-                android:textSize="13dp" />
+                android:background="@drawable/filter_default">
 
-            <Button
-                android:id="@+id/button6"
+
+                <TextView
+                    android:id="@+id/filter4_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과거"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter5_conslay"
                 android:layout_width="74dp"
                 android:layout_height="36dp"
-                android:layout_marginLeft="11dp"
-                android:layout_weight="1"
-                android:background="@drawable/filter_default"
-                android:fontFamily="@font/regularnanumsquareround"
-                android:text="기한없음"
-                android:textColor="@android:color/black"
-                android:textSize="13dp" />
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/filter_default">
 
-            <Button
-                android:id="@+id/button7"
+
+                <TextView
+                    android:id="@+id/filter5_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기한없음"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter6_conslay"
                 android:layout_width="56dp"
                 android:layout_height="36dp"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="6dp"
                 android:layout_weight="1"
-                android:background="@drawable/filter_default"
-                android:fontFamily="@font/regularnanumsquareround"
-                android:text="완료"
-                android:textColor="@android:color/black"
-                android:textSize="13dp" />
+                android:background="@drawable/filter_default">
+
+
+                <TextView
+                    android:id="@+id/filter6_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="완료"
+                    android:fontFamily="@font/regularnanumsquareround"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -132,7 +197,7 @@
         android:id="@+id/listview_todolist"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:divider="@android:color/transparent"
         android:listSelector="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/add_imageview_todo"

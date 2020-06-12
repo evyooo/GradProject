@@ -426,7 +426,7 @@ def get_calendar():
     return jsonify(result)
 
 
-
+# TODO
 @app.route("/get_birthday")
 def get_birthday():
     con = Mysql()
@@ -466,6 +466,108 @@ def delete_calendar():
     con.close()
 
     return jsonify({'result': 1})
+
+
+#  게시판 저장
+@app.route("/put_board")
+def put_board():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    content = request.args.get("content")
+    userid = request.args.get("userid")
+    postdate = request.args.get("postdate")
+    fixed = request.args.get("fixed")
+
+    query = """insert into BOARD (roomindex, content, userid, postdate, fixed) 
+                    values (%s, %s, %s, %s, %s)"""
+    con.cursor.execute(query, (roomindex, content, userid, postdate, fixed))
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
+#  할일 저장
+@app.route("/put_todo")
+def put_todo():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    title = request.args.get("title")
+    duedate = request.args.get("duedate")
+    score = request.args.get("score")
+    remind = request.args.get("remind")
+
+    query = """insert into TODO (roomindex, title, duedate, score, remind) 
+                    values (%s, %s, %s, %s, %s)"""
+    con.cursor.execute(query, (roomindex, title, duedate, score, remind))
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
+#  할일 불러오기
+@app.route("/get_todo")
+def get_todo():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    duedate = request.args.get("duedate")
+    filter = request.args.get("filter")
+
+    if filter == "0":
+        query = "select todoindex, title, duedate, score, remind, userid, donedate from TODO where roomindex = '" + roomindex + "'"
+        con.cursor.execute(query)
+        query_result = con.cursor.fetchall()
+    elif filter == "1":
+        query = "select todoindex, title, duedate, score, remind, userid, donedate from TODO where roomindex = '" + roomindex + "' and duedate = '" + duedate + "'"
+        con.cursor.execute(query)
+        query_result = con.cursor.fetchall()
+    else: # todo
+        query = "select todoindex, title, duedate, score, remind, userid, donedate from TODO where roomindex = '" + roomindex + "' and duedate = '" + duedate + "'"
+        con.cursor.execute(query)
+        query_result = con.cursor.fetchall()
+
+
+    todo = []
+
+    for row in query_result:
+        todo.append({"index": row[0], 'title': row[1], 'duedate': row[2], 'score': row[3], 'remind': row[4], 'userid': row[5], 'donedate': row[6]})
+
+    if (query_result):
+        result = {'result': 1, 'todo': todo}
+    else:
+        result = {'result': -1}
+
+    con.close()
+    return jsonify(result)
+
+
+
+@app.route("/get_calendar_home")
+def get_calendar_home():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    date = request.args.get("date")
+
+    query = "select color, title, startdate from CALENDAR where roomindex = '" + roomindex + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    calinfo = []
+
+    # if (query_result):
+    #     for row in query_result:
+    #         if row[2][:7] == date or row[3][:7] == date:
+    #             calinfo.append(
+    #                 {"color": row[0], "title": row[1], "startdate": row[2], "enddate": row[3], "remind": row[4], "calendarindex": row[5]})
+    #     result = {'result': 1, 'calinfo': calinfo}
+    # else:
+    #     result = {'result': -1}
+
+    con.close()
+    return jsonify(query_result)
+
+
+
+
 
 
 

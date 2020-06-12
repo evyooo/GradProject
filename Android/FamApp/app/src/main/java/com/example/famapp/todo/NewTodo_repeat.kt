@@ -17,5 +17,16 @@ class NewTodo_repeat : AppCompatActivity() {
 
         repeatAdapter = RepeatAdapter(this, repeatlist)
         listview_todorepeat.adapter = repeatAdapter
+
+
+        cancel_button_repeat.setOnClickListener {
+            finish()
+        }
+
+        save_button_repeat.setOnClickListener {
+            finish()
+        }
+
+
     }
 }

@@ -17,5 +17,15 @@ class NewTodo_score : AppCompatActivity() {
 
         scoreAdapter = ScoreAdapter(this, scorelist)
         listview_todoscore.adapter = scoreAdapter
+
+
+        cancel_button_score.setOnClickListener {
+            finish()
+        }
+
+        save_button_score.setOnClickListener{
+            finish()
+        }
+
     }
 }
