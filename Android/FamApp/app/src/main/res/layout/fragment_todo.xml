@@ -8,6 +8,94 @@
     tools:context=".todo.TodoFragment">
 
 
+    <HorizontalScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/title_imageview_todo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="56dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/filter_default"
+                android:fontFamily="@font/regularnanumsquareround"
+                android:text="전체"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="56dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:background="@drawable/filter_default"
+                android:fontFamily="@font/regularnanumsquareround"
+                android:text="오늘"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="61dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="11dp"
+                android:background="@drawable/filter_default"
+                android:fontFamily="@font/regularnanumsquareround"
+                android:text="이번주"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="56dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:background="@drawable/filter_default"
+                android:fontFamily="@font/regularnanumsquareround"
+                android:text="과거"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="74dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:background="@drawable/filter_default"
+                android:fontFamily="@font/regularnanumsquareround"
+                android:text="기한없음"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="56dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:background="@drawable/filter_default"
+                android:fontFamily="@font/regularnanumsquareround"
+                android:text="완료"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <ImageView
         android:id="@+id/title_imageview_todo"
         android:layout_width="0dp"
@@ -44,12 +132,13 @@
         android:id="@+id/listview_todolist"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="40dp"
         android:divider="@android:color/transparent"
         android:listSelector="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/add_imageview_todo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_imageview_todo">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4">
 
     </ListView>
 

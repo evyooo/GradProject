@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/each_conslay"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="vertical">
 
@@ -34,72 +33,153 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="14dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date">
 
-        <Button
-            android:id="@+id/box1_button_cal"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="11dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:background="@drawable/shape_calendarschedule"
-            android:fontFamily="@font/boldnanumsquareround"
-            android:gravity="left"
-            android:paddingLeft="2dp"
-            android:paddingTop="1dp"
-            android:textColor="@android:color/white"
-            android:textSize="8dp" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/box2_button_cal"
-            android:layout_width="match_parent"
-            android:layout_height="11dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="2dp"
-            android:background="@drawable/shape_calendarschedule"
-            android:fontFamily="@font/boldnanumsquareround"
-            android:gravity="left"
-            android:paddingLeft="2dp"
-            android:paddingTop="1dp"
-            android:textColor="@android:color/white"
-            android:textSize="8dp" />
+            <ImageView
+                android:id="@+id/box1_button_cal"
+                android:layout_width="0dp"
+                android:layout_height="11dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/boldnanumsquareround"
+                android:gravity="left"
+                android:paddingLeft="2dp"
+                android:paddingTop="1dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shape_calendarschedule" />
 
-        <Button
-            android:id="@+id/box3_button_cal"
-            android:layout_width="match_parent"
-            android:layout_height="11dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="2dp"
-            android:background="@drawable/shape_calendarschedule"
-            android:fontFamily="@font/boldnanumsquareround"
-            android:gravity="center_horizontal|left"
-            android:paddingLeft="2dp"
-            android:paddingTop="1dp"
-            android:text="캡디 팀플"
-            android:textColor="@android:color/white"
-            android:textSize="8dp" />
+            <TextView
+                android:id="@+id/box1_textview_cal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/box1_button_cal"
+                app:layout_constraintStart_toStartOf="@+id/box1_button_cal"
+                app:layout_constraintTop_toTopOf="@+id/box1_button_cal" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:id="@+id/box4_button_cal"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="11dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/shape_calendarschedule"
-            android:fontFamily="@font/boldnanumsquareround"
-            android:gravity="center_horizontal|left"
-            android:paddingLeft="2dp"
-            android:paddingTop="1dp"
-            android:textColor="@android:color/white"
-            android:textSize="8dp" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/box2_button_cal"
+                android:layout_width="match_parent"
+                android:layout_height="11dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/boldnanumsquareround"
+                android:gravity="left"
+                android:paddingLeft="2dp"
+                android:paddingTop="1dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shape_calendarschedule" />
+
+            <TextView
+                android:id="@+id/box2_textview_cal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="@+id/box2_button_cal"
+                app:layout_constraintStart_toStartOf="@+id/box2_button_cal"
+                app:layout_constraintTop_toTopOf="@+id/box2_button_cal"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/box3_button_cal"
+                android:layout_width="match_parent"
+                android:layout_height="11dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/boldnanumsquareround"
+                android:gravity="center_horizontal|left"
+                android:paddingLeft="2dp"
+                android:paddingTop="1dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shape_calendarschedule" />
+
+            <TextView
+                android:id="@+id/box3_textview_cal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/box3_button_cal"
+                app:layout_constraintStart_toStartOf="@+id/box3_button_cal"
+                app:layout_constraintTop_toTopOf="@+id/box3_button_cal" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/box4_button_cal"
+                android:layout_width="match_parent"
+                android:layout_height="11dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/boldnanumsquareround"
+                android:gravity="center_horizontal|left"
+                android:paddingLeft="2dp"
+                android:paddingTop="1dp"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shape_calendarschedule" />
+
+            <TextView
+                android:id="@+id/box4_textview_cal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                android:textColor="@android:color/white"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/box4_button_cal"
+                app:layout_constraintStart_toStartOf="@+id/box4_button_cal"
+                app:layout_constraintTop_toTopOf="@+id/box4_button_cal" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

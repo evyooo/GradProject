@@ -26,12 +26,18 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
         var circle = view.findViewById<ImageView>(R.id.selected_circle)
         var each = view.findViewById<ConstraintLayout>(R.id.each_conslay)
 
-        var box1 = view.findViewById<Button>(R.id.box1_button_cal)
-        var box2 = view.findViewById<Button>(R.id.box2_button_cal)
-        var box3 = view.findViewById<Button>(R.id.box3_button_cal)
-        var box4 = view.findViewById<Button>(R.id.box4_button_cal)
+        var box1 = view.findViewById<ImageView>(R.id.box1_button_cal)
+        var box2 = view.findViewById<ImageView>(R.id.box2_button_cal)
+        var box3 = view.findViewById<ImageView>(R.id.box3_button_cal)
+        var box4 = view.findViewById<ImageView>(R.id.box4_button_cal)
+
+        var text1 = view.findViewById<TextView>(R.id.box1_textview_cal)
+        var text2 = view.findViewById<TextView>(R.id.box2_textview_cal)
+        var text3 = view.findViewById<TextView>(R.id.box3_textview_cal)
+        var text4 = view.findViewById<TextView>(R.id.box4_textview_cal)
 
         var boxlist = arrayOf(box1, box2, box3, box4)
+        var boxtextlist = arrayOf(text1, text2, text3, text4)
 
         circle.visibility = View.INVISIBLE
 
@@ -62,38 +68,8 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
 
                 for (i in 0..until){
                     boxlist[i].visibility = View.VISIBLE
-                    boxlist[i].setText("${arrayList[position - startblank][i].title}")
+                    boxtextlist[i].text = "${arrayList[position - startblank][i].title}"
 
-                    Log.d("color", "${arrayList[position - startblank][i].color}")
-
-                    //  TODO color change 해결하기
-
-                    /*
-                    //  본인 색상 띄우기
-        var background = ResourcesCompat.getDrawable(context.resources, R.drawable.design_12circle, null) as GradientDrawable
-        background.mutate() // Mutate the drawable so changes don't affect every other drawable
-
-        when (memberinfo.coloring) {
-            1 -> background.setColor(context.getColor(R.color.profile1))
-            2 -> background.setColor(context.getColor(R.color.profile2))
-            3 -> background.setColor(context.getColor(R.color.profile3))
-            4 -> background.setColor(context.getColor(R.color.profile4))
-            5 -> background.setColor(context.getColor(R.color.profile5))
-            6 -> background.setColor(context.getColor(R.color.profile6))
-            7 -> background.setColor(context.getColor(R.color.profile7))
-            8 -> background.setColor(context.getColor(R.color.profile8))
-            9 -> background.setColor(context.getColor(R.color.profile9))
-            10 -> background.setColor(context.getColor(R.color.profile10))
-            11 -> background.setColor(context.getColor(R.color.profile11))
-            12 -> background.setColor(context.getColor(R.color.profile12))
-            13 -> background.setColor(context.getColor(R.color.profile13))
-            14 -> background.setColor(context.getColor(R.color.profile14))
-            15 -> background.setColor(context.getColor(R.color.profile15))
-            16 -> background.setColor(context.getColor(R.color.profile16))
-        }
-
-        coloring.setImageDrawable(background)
-                     */
                     var background = ResourcesCompat.getDrawable(context.resources, R.drawable.shape_calendarschedule, null) as GradientDrawable
                     background.mutate() // Mutate the drawable so changes don't affect every other drawable
 
@@ -106,8 +82,8 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
                         4 -> colorchip = R.color.profile1
                         else -> colorchip = R.color.box5
                     }
-                    boxlist[i].setBackgroundColor(colorchip)
-//                    boxlist[i].setImageDrawable(background)
+                    background.setColor(context.getColor(colorchip))
+                    boxlist[i].setImageDrawable(background)
 
                 }
 
