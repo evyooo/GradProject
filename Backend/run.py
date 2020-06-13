@@ -645,7 +645,35 @@ def update_board():
     return jsonify({'result': 1})
 
 
+@app.route("/get_stats")
+def get_stats():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+    year = request.args.get("year")
+    month = request.args.get("month")
 
+    query = "select userid, weekofMonth, content, score from STATS where roomindex = '" + roomindex + "' and year = '" + year + "' and month = '" + month + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    statsinfo = []
+
+    for row in query_result:
+        contentinfo = []
+
+        arr = row[2].split(',')
+        for each in arr:
+            query1 = "select title, score, donedate from TODO where todoindex = '" + each + "'"
+            con.cursor.execute(query1)
+            query_result1 = con.cursor.fetchall()
+            contentinfo.append(query_result1)
+
+        statsinfo.append({"userid": row[0], "weekofMonth": row[1], "content": contentinfo, "score": row[3]})
+
+    result = {'result': 1, 'statsinfo': statsinfo}
+
+    con.close()
+    return jsonify(result)
 
 
 # #  초대 코드 업데이트

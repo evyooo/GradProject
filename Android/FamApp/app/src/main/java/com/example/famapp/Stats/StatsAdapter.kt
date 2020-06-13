@@ -15,10 +15,12 @@ import android.util.Log
 import android.view.DragEvent
 import android.widget.*
 import com.example.famapp.R
+import com.example.famapp.StatData
 import com.example.famapp.StatMembers
+import com.example.famapp.weekData
 
 
-class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, var body: MutableList<MutableList<String>>) : BaseExpandableListAdapter() {
+class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, var body: MutableList<MutableList<StatData>>) : BaseExpandableListAdapter() {
     override fun getGroup(groupPosition: Int): StatMembers {
         return header[groupPosition]
     }
@@ -43,6 +45,9 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
         val name = convertView?.findViewById<TextView>(R.id.name_textview_statsgroup)
         val score = convertView?.findViewById<TextView>(R.id.score_textview_statsgroup)
         val indicator = convertView?.findViewById<ImageView>(R.id.indicator_imageview_statsgroup)
+
+        name!!.text = header[groupPosition].name
+        score!!.text = header[groupPosition].score
 
 
         when(groupPosition){
@@ -117,6 +122,39 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
             2 -> week!!.text = "셋째주"
             3 -> week!!.text = "넷째주"
         }
+
+
+        var contentData = body[groupPosition][childPosition].content
+        var contentarr = contentData.split("]],[[").toTypedArray()
+
+        var tempstr = ""
+
+        for (each in contentarr){
+            var temparr = each.split(",").toTypedArray()
+
+            var first = temparr[0].replace("[", "")
+            first = first.replace('"',' ')
+            var second = temparr[1].replace('"',' ')
+            second = second.replace("]", "")
+            var third = temparr[2].replace('"',' ')
+            third = third.replace("]", "")
+
+
+            //  0점 획득이면 점수 안쓰기
+            if(second == "0"){
+                tempstr += tempstr + "$third $first "
+            }
+            else{
+                tempstr += tempstr + "$third $first +$second "
+            }
+
+
+        }
+
+
+        content!!.text = tempstr
+
+
 
 
         //  마지막 child가 아닐 경우
