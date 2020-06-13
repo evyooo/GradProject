@@ -17,7 +17,6 @@ import android.widget.*
 import com.example.famapp.R
 import com.example.famapp.StatData
 import com.example.famapp.StatMembers
-import com.example.famapp.weekData
 
 
 class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, var body: MutableList<MutableList<StatData>>) : BaseExpandableListAdapter() {
@@ -130,6 +129,9 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
         var tempstr = ""
 
         for (each in contentarr){
+
+            //  TODO 여러개일때 다시보기
+
             var temparr = each.split(",").toTypedArray()
 
             var first = temparr[0].replace("[", "")
@@ -138,14 +140,15 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
             second = second.replace("]", "")
             var third = temparr[2].replace('"',' ')
             third = third.replace("]", "")
+            third = third.replace(" ", "")
 
 
             //  0점 획득이면 점수 안쓰기
             if(second == "0"){
-                tempstr += tempstr + "$third $first "
+                tempstr += "$third $first "
             }
             else{
-                tempstr += tempstr + "$third $first +$second "
+                tempstr += "$third $first +$second "
             }
 
 

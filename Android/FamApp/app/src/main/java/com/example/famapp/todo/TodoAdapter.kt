@@ -20,16 +20,24 @@ import com.example.famapp.R
 import com.example.famapp.Todo
 import org.json.JSONObject
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAdapter(){
 
     lateinit var myPreference: MyPreference
+
+    //  오늘 날짜
+    val current = LocalDateTime.now()
+    val year = current.year.toString()
+    var month = current.monthValue.toString()
+
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View = LayoutInflater.from(context).inflate(R.layout.layout_todolistview, null)
 
         myPreference = MyPreference(context)
         val username = myPreference.getUsername()
+        val roomindex = myPreference.getRoomindex()
 
 
         val title = view.findViewById<TextView>(R.id.title_textview_todolay)
@@ -51,10 +59,11 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         var scorelist = arrayListOf("없음", "하 - 1점 획득", "중 - 2점 획득", "상 - 3점 획득")
         score.text  = scorelist[todo.score.toInt()]
 
-//        var repeatlist = arrayListOf("월요일마다", "화요일마다", "수요일마다", "목요일마다", "금요일마다", "토요일마다", "일요일마다", "반복 없음")
-//
-//
-//        repeattv.text = repeatlist[]
+
+        if (month.length < 2){
+            month = "0$month"
+        }
+
 
 
 
@@ -69,8 +78,7 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         }
 
 
-        //  오늘 날짜
-        val current = LocalDateTime.now()
+
 
         //  체크박스
         var flag : Int
@@ -105,13 +113,15 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
                     monthstr = "0${current.monthValue}"
                 }
 
-                doneby.text = "$monthstr/${current.dayOfMonth} $username"
+                doneby.text = "$monthstr.${current.dayOfMonth} $username"
 
                 title.setTextColor(context!!.getColor(R.color.colorPrimary))
                 title.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG)
                 flag = 1
 
-                done(username, "$monthstr/${current.dayOfMonth}", todo.index)
+                var weekofMonth = weekofMonth(current)
+
+                done(roomindex, username, "$monthstr.${current.dayOfMonth}", todo.index, weekofMonth.toString())
 
             }
             else{
@@ -152,13 +162,13 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
 
 
 
-    fun done(userid: String, donedate: String, todoindex: String){
+    fun done(roomindex: String, userid: String, donedate: String, todoindex: String, weekofMonth: String){
 
         val myJson = JSONObject()
         val requestBody = myJson.toString()
 
         val login_url =
-            basic_url + "update_todo?userid=$userid&donedate=$donedate&todoindex=$todoindex"
+            basic_url + "update_todo?roomindex=$roomindex&userid=$userid&donedate=$donedate&todoindex=$todoindex&year=$year&month=$month&weekofMonth=$weekofMonth"
 
         val testRequest = object : StringRequest(Method.GET, login_url,
             Response.Listener { response ->
@@ -206,6 +216,33 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         }
 
         Volley.newRequestQueue(context).add(testRequest)
+
+    }
+
+    fun weekofMonth(current: LocalDateTime) : Int{
+
+        val formatter = DateTimeFormatter.ofPattern("M월 d일")
+
+        //  요일
+        val rawdayOfWeek = DateTimeFormatter.ofPattern("E")
+        val formatdayOfWeek = current.format(rawdayOfWeek)
+
+
+        var startofWeek = current
+
+        when (formatdayOfWeek){
+            "Mon" -> startofWeek = current.minusDays(1)
+            "Tue" -> startofWeek = current.minusDays(2)
+            "Wed" -> startofWeek = current.minusDays(3)
+            "Thu" -> startofWeek = current.minusDays(4)
+            "Fri" -> startofWeek = current.minusDays(5)
+            "Sat" -> startofWeek = current.minusDays(6)
+            "Sun" -> startofWeek = current
+        }
+
+
+        return startofWeek.dayOfMonth/7 + 1
+
 
     }
 }

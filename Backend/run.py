@@ -571,13 +571,45 @@ def get_calendar_home():
 @app.route("/update_todo")
 def update_todo():
     con = Mysql()
+    roomindex = request.args.get("roomindex")
     userid = request.args.get("userid")
     donedate = request.args.get("donedate")
     todoindex = request.args.get("todoindex")
+    year = request.args.get("year")
+    month = request.args.get("month")
+    weekofMonth = request.args.get("weekofMonth")
 
     query = "update TODO set userid = '" + userid + "', donedate = '" + donedate + "' where todoindex = '" + todoindex + "'"
     con.cursor.execute(query)
     con.db.commit()
+
+    scorequery = "select score from TODO where todoindex = '" + todoindex + "'"
+    con.cursor.execute(scorequery)
+    score_result = con.cursor.fetchall()
+
+
+    selectquery = "select content, score from STATS where roomindex = '" + roomindex + "' and weekofMonth = '" + weekofMonth + "' and year = '" + year + "' and month = '" + month + "' and userid = '" + userid + "'"
+    con.cursor.execute(selectquery)
+    select_result = con.cursor.fetchall()
+
+    if (select_result == ()):
+        query = """insert into STATS (roomindex, userid, year, month, weekofMonth, score) 
+                            values (%s, %s, %s, %s, %s, %s)"""
+        con.cursor.execute(query, (roomindex, userid, year, month, weekofMonth, 0))
+        con.db.commit()
+
+        contentstr = todoindex
+        score = int(score_result[0][0])
+
+    else:
+        contentstr = str(select_result[0][0]) + "," + todoindex
+        score = int(select_result[0][1]) + int(score_result[0][0])
+
+
+    query1 = "update STATS set content = '" + contentstr + "', score = '" + str(score) + "' where roomindex = '" + roomindex + "' and weekofMonth = '" + weekofMonth + "' and year = '" + year + "' and month = '" + month + "' and userid = '" + userid + "'"
+    con.cursor.execute(query1)
+    con.db.commit()
+
     con.close()
     return jsonify({'result': 1})
 

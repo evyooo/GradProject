@@ -187,33 +187,7 @@ class StatsFragment : Fragment() {
 
     }
 
-    fun weekofMonth(current: LocalDateTime) : Int{
 
-        val formatter = DateTimeFormatter.ofPattern("M월 d일")
-        val formatted = current.format(formatter)
-
-        //  요일
-        val rawdayOfWeek = DateTimeFormatter.ofPattern("E")
-        val formatdayOfWeek = current.format(rawdayOfWeek)
-
-
-        var startofWeek = current
-
-        when (formatdayOfWeek){
-            "Mon" -> startofWeek = current.minusDays(1)
-            "Tue" -> startofWeek = current.minusDays(2)
-            "Wed" -> startofWeek = current.minusDays(3)
-            "Thu" -> startofWeek = current.minusDays(4)
-            "Fri" -> startofWeek = current.minusDays(5)
-            "Sat" -> startofWeek = current.minusDays(6)
-            "Sun" -> startofWeek = current
-        }
-
-
-        return startofWeek.dayOfMonth/7 + 1
-
-
-    }
 
 
     fun bringData(roomindex: String, year: String, month: String){
