@@ -568,6 +568,82 @@ def get_calendar_home():
 
 
 
+@app.route("/update_todo")
+def update_todo():
+    con = Mysql()
+    userid = request.args.get("userid")
+    donedate = request.args.get("donedate")
+    todoindex = request.args.get("todoindex")
+
+    query = "update TODO set userid = '" + userid + "', donedate = '" + donedate + "' where todoindex = '" + todoindex + "'"
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
+@app.route("/undo_todo")
+def undo_todo():
+    con = Mysql()
+
+    todoindex = request.args.get("todoindex")
+
+    query = "update TODO set userid = 'null', donedate = 'null' where todoindex = '" + todoindex + "'"
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
+
+
+@app.route("/get_board")
+def get_board():
+    con = Mysql()
+    roomindex = request.args.get("roomindex")
+
+    query = "select boardindex, content, userid, postdate, fixed from BOARD where roomindex = '" + roomindex + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    boardinfo = []
+
+
+    for row in query_result:
+
+        boardinfo.append({"boardindex": row[0], "content": row[1], "userid": row[2], "postdate": row[3], "fixed": row[4]})
+
+    result = {'result': 1, 'boardinfo': boardinfo}
+
+    con.close()
+    return jsonify(result)
+
+
+@app.route("/delete_board")
+def delete_board():
+    con = Mysql()
+    boardindex = request.args.get("boardindex")
+
+    query = "delete from BOARD where boardindex = '" + boardindex + "'"
+
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+
+    return jsonify({'result': 1})
+
+@app.route("/update_board")
+def update_board():
+    con = Mysql()
+    content = request.args.get("content")
+    fixed = request.args.get("fixed")
+    boardindex = request.args.get("boardindex")
+
+    query = "update BOARD set content = '" + content + "', fixed = '" + fixed + "' where boardindex = '" + boardindex + "'"
+    con.cursor.execute(query)
+    con.db.commit()
+    con.close()
+    return jsonify({'result': 1})
+
 
 
 

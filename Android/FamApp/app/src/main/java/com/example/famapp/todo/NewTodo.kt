@@ -241,7 +241,12 @@ class NewTodo : AppCompatActivity() {
             dialog.dismiss()
             dialog.cancel()
 
-            duedate = "${year.value}.${month.value}.${day.value}"
+            var monthstr = ""
+            if (month.value.toString().length < 2){
+                monthstr = "0${month.value}"
+            }
+
+            duedate = "${year.value}.${monthstr}.${day.value}"
             duedate_textview_imageview.text = duedate
         }
 

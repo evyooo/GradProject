@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Board.BoardEdit">
+
+
+        <ImageView
+            android:id="@+id/title_imageview_boardwrite"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/titlebar" />
+
+    <TextView
+        android:id="@+id/title_textview_boardwrite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="게시물 수정"
+        android:textColor="@android:color/black"
+        android:textSize="21dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/userinput_edittext_boardedit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="50dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:maxLength="100"
+            app:layout_constraintBottom_toTopOf="@+id/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_textview_boardwrite" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="265dp"
+            android:background="#E0E0E0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wordcount_textview_boardwrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="19dp"
+            android:text="0 / 100"
+            android:textColor="#B0B0B0"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/line"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/fix_imageview_boardwrite"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fix_textview_boardwrite"
+            app:layout_constraintEnd_toStartOf="@+id/fix_textview_boardwrite"
+            app:layout_constraintTop_toTopOf="@+id/fix_textview_boardwrite"
+            app:srcCompat="@drawable/icon_fixed_default" />
+
+        <TextView
+            android:id="@+id/fix_textview_boardwrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:text="고정"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/cancel_button_boardedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/design_strokebutton"
+                android:text="취소"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17dp" />
+
+            <Button
+                android:id="@+id/save_button_boardedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="수정"
+                android:textColor="@android:color/white"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -48,7 +48,7 @@
             <ImageView
                 android:id="@+id/box1_button_cal"
                 android:layout_width="0dp"
-                android:layout_height="11dp"
+                android:layout_height="14dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:fontFamily="@font/boldnanumsquareround"
@@ -82,7 +82,7 @@
             <ImageView
                 android:id="@+id/box2_button_cal"
                 android:layout_width="match_parent"
-                android:layout_height="11dp"
+                android:layout_height="14dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="2dp"
@@ -118,7 +118,7 @@
             <ImageView
                 android:id="@+id/box3_button_cal"
                 android:layout_width="match_parent"
-                android:layout_height="11dp"
+                android:layout_height="14dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="2dp"
@@ -153,7 +153,7 @@
             <ImageView
                 android:id="@+id/box4_button_cal"
                 android:layout_width="match_parent"
-                android:layout_height="11dp"
+                android:layout_height="14dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="2dp"

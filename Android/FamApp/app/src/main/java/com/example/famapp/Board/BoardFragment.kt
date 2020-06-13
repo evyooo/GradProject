@@ -12,16 +12,27 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.famapp.R
 import kotlinx.android.synthetic.main.fragment_board.*
 import java.util.*
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.widget.LinearLayout
+import android.widget.Toast
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.famapp.*
+import com.example.famapp.Calendar.CalendarAdapter
+import com.example.famapp.Global.Companion.basic_url
+import kotlinx.android.synthetic.main.fragment_calendar.*
+import org.json.JSONObject
 
 
 class BoardFragment : Fragment() {
+
+    lateinit var boardAdapter: BoardAdapter
+    lateinit var myPreference: MyPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +45,11 @@ class BoardFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
+        myPreference = MyPreference(requireContext())
+        val roomindex = myPreference.getRoomindex()
+
+
+        //  추가
         add_imageview_board.setOnClickListener {
             activity?.let{
                 val intent = Intent(context, Board_write::class.java)
@@ -42,33 +58,71 @@ class BoardFragment : Fragment() {
         }
 
 
+        drawSticker(roomindex)
 
 
-        //  TODO 임시
-        title_textview_board.setOnClickListener {
 
-            val constraintLayout = view!!.findViewById(R.id.stickerarea_constraitlay_board) as ConstraintLayout
-            val imageView = ImageView(context)
-            imageView.setImageResource(R.drawable.shape_stickerboard)
 
-            //  사이즈임 포지션이아니라
-            val params = LinearLayout.LayoutParams(
-                500, 500
-            )
 
-            imageView.layoutParams = ViewGroup.LayoutParams(params)
-            imageView.x = (1..1200).random().toFloat()
-            imageView.y = (1..1500).random().toFloat()
 
-            constraintLayout.addView(imageView)
+    }
 
+    fun drawSticker(roomindex: String){
+
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val url = basic_url + "get_board?roomindex=$roomindex"
+
+        val testRequest = object : StringRequest(Method.GET, url,
+            Response.Listener { response ->
+
+
+                var stickerlist = arrayListOf<BoardSticker>()
+
+                var json_response = JSONObject(response)
+                if(json_response["result"].toString() == "1"){
+
+                    var boardinfo = json_response.getJSONArray("boardinfo")
+                    var arraysize = boardinfo.length()
+
+
+                    for (i in 0..arraysize-1){
+                        var tempwhole = boardinfo.getJSONObject(i)
+
+                        var boardindex = tempwhole.getString("boardindex")
+                        var content = tempwhole.getString("content")
+                        var userid = tempwhole.getString("userid")
+                        var postdate = tempwhole.getString("postdate")
+                        var fixed = tempwhole.getString("fixed")
+
+                        stickerlist.add(BoardSticker(boardindex, content, userid, postdate, fixed))
+
+
+                    }
+
+                }
+
+
+                boardAdapter = BoardAdapter(requireContext(), stickerlist)
+                gridview_board.adapter = boardAdapter
+
+
+
+            }, Response.ErrorListener {
+                Toast.makeText(context, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
         }
 
-
-        //  전체 길이 설정해주기
-//        stickerarea_constraitlay_board.layoutParams
-
-
+        Volley.newRequestQueue(requireContext()).add(testRequest)
     }
 
 

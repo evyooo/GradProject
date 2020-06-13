@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".todo.NewTodo_repeat"></activity>
+        <activity android:name=".Board.BoardEdit"></activity>
+        <activity android:name=".todo.NewTodo_repeat" />
         <activity android:name=".todo.NewTodo_score" />
         <activity android:name=".Calendar.CalendarInside_saved" />
         <activity

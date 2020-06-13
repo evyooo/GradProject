@@ -1,4 +1,5 @@
 create table BOARD(
+	boardindex int auto_increment primary key,
 	roomindex int, 
     content text,
     userid text,

@@ -40,6 +40,8 @@ class Global : Application() {
         var newtodo_repeat = arrayListOf(0, 0, 0, 0, 0, 0, 0, 0)
         var newtodo_score = 3
 
+        var editBoard = BoardSticker("", "", "", "", "")
+
 
     }
 }

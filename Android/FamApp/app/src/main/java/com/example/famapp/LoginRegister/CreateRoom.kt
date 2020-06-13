@@ -83,6 +83,8 @@ class CreateRoom : AppCompatActivity() {
                     startActivity(intent)
 
 
+
+
                 }else{
                     Toast.makeText(this, "생성 실패", Toast.LENGTH_SHORT).show()
                 }

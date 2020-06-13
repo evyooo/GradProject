@@ -177,11 +177,5 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
         return datelist.size
     }
 
-    fun color(colorchip: Int){
-
-
-
-    }
-
 
 }

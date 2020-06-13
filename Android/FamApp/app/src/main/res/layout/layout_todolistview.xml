@@ -46,9 +46,9 @@
         android:layout_width="9dp"
         android:layout_height="9dp"
         android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/date_textview_todolay"
-        app:layout_constraintStart_toEndOf="@+id/date_textview_todolay"
-        app:layout_constraintTop_toTopOf="@+id/date_textview_todolay"
+        app:layout_constraintBottom_toBottomOf="@+id/repeat_textview_todolay"
+        app:layout_constraintStart_toEndOf="@+id/repeat_textview_todolay"
+        app:layout_constraintTop_toTopOf="@+id/repeat_textview_todolay"
         app:srcCompat="@drawable/refresh" />
 
     <TextView
@@ -81,5 +81,16 @@
         app:layout_constraintStart_toStartOf="@+id/score_textview_todolay"
         app:layout_constraintTop_toBottomOf="@+id/score_textview_todolay"
         app:srcCompat="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/repeat_textview_todolay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regularnanumsquareround"
+        android:textColor="#C5C5C5"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_textview_todolay"
+        app:layout_constraintStart_toEndOf="@+id/date_textview_todolay"
+        app:layout_constraintTop_toTopOf="@+id/date_textview_todolay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
