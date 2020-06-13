@@ -19,7 +19,9 @@ import com.example.famapp.Calendar.CalendarFragment
 import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.Global.Companion.memberslist
 import com.example.famapp.settings.Settings
+import com.example.famapp.todo.TodoAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_todo.*
 import org.json.JSONObject
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -49,6 +51,7 @@ class HomeFragment : Fragment() {
 
         bringData(currentroom)
 
+//        bringTODO()
 
         //  설정
         setting_imageview_home.setOnClickListener {
@@ -130,6 +133,9 @@ class HomeFragment : Fragment() {
                 ?.commit()
         }
 
+
+
+
     }
 
     fun bringData(index: String){
@@ -188,10 +194,88 @@ class HomeFragment : Fragment() {
 
     fun bringCal(){
 
+//        thisweek_textview_home.text = ""
+
+    }
+
+    fun bringTODO(){
+        myPreference = MyPreference(requireContext())
+        val roomindex = myPreference.getRoomindex()
 
 
-        thisweek_textview_home.text = ""
+        //  현재 날짜 설정
+        val current = LocalDateTime.now()
 
+        var mon = ""
+        if (current.monthValue.toString().length < 2){
+            mon = "0${current.monthValue}"
+        }
+
+        var duedate = "${current.year}.$mon.${current.dayOfMonth}"
+
+
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val login_url = basic_url + "get_todo?roomindex=$roomindex&duedate=$duedate&filter=1"
+
+        val testRequest = object : StringRequest(Method.GET, login_url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+                if (json_response["result"].toString() == "1") {
+
+                    var templist = arrayListOf<Todo>()
+
+                    var noticeresult = json_response.getJSONArray("todo")
+                    var arraysize = noticeresult.length()
+
+                    for (i in (0 .. arraysize-1)){
+
+                        var obj = noticeresult.getJSONObject(i)
+
+                        var index = obj.getInt("index").toString()
+                        var title = obj.getString("title")
+                        var duedate = obj.getString("duedate")
+                        var score = obj.getString("score")
+                        var remind = obj.getString("remind")
+                        var doneby = obj.getString("userid")
+                        var donedate = obj.getString("donedate")
+
+                        var temp = Todo(
+                            "$index",
+                            "$title",
+                            "$duedate",
+                            "$score",
+                            "$remind",
+                            "$doneby",
+                            "$donedate")
+
+                        templist.add(temp)
+
+                        todaytodo_textview_home.text = "$title"
+
+                    }
+
+
+
+
+                }
+
+            }, Response.ErrorListener {
+                Toast.makeText(context, "서버 연결을 확인해주세요", Toast.LENGTH_SHORT).show()
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(context).add(testRequest)
     }
 
 

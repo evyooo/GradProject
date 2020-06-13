@@ -31,6 +31,11 @@ class ChooseRoom : AppCompatActivity() {
 
         bringRooms(username)
 
+        textView33.setOnClickListener {
+
+            var intent = Intent(this, CreateOrJoin::class.java)
+            startActivity(intent)
+        }
 
     }
 

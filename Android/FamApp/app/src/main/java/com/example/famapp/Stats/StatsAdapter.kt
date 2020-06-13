@@ -115,11 +115,11 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
         val line = convertView?.findViewById<View>(R.id.line_statschild)
         val blank = convertView?.findViewById<ImageView>(R.id.blank_imageview_statschild)
 
-        when (childPosition){
-            0 -> week!!.text = "첫째주"
-            1 -> week!!.text = "둘째주"
-            2 -> week!!.text = "셋째주"
-            3 -> week!!.text = "넷째주"
+        when (body[groupPosition][childPosition].week){
+            "1" -> week!!.text = "첫째주"
+            "2" -> week!!.text = "둘째주"
+            "3" -> week!!.text = "셋째주"
+            "4" -> week!!.text = "넷째주"
         }
 
 
@@ -129,8 +129,6 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
         var tempstr = ""
 
         for (each in contentarr){
-
-            //  TODO 여러개일때 다시보기
 
             var temparr = each.split(",").toTypedArray()
 

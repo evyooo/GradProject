@@ -623,6 +623,10 @@ def undo_todo():
     query = "update TODO set userid = 'null', donedate = 'null' where todoindex = '" + todoindex + "'"
     con.cursor.execute(query)
     con.db.commit()
+
+
+
+
     con.close()
     return jsonify({'result': 1})
 

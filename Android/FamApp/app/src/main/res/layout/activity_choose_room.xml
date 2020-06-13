@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".LoginRegister.ChooseRoom">
 
     <ImageView
@@ -14,24 +15,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/design_40circle" />
+        app:srcCompat="@drawable/logo_circle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/select2_conslay_diatodo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="18dp"
-        android:background="@drawable/shape_graybox"
+        android:background="@drawable/transfer_room_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12">
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
 
         <ListView
             android:id="@+id/room_listview"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="131dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,9 +47,26 @@
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:fontFamily="@font/boldnanumsquareround"
+        android:text="+ 다른 방 추가"
+        android:textColor="@color/black"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="@+id/select2_conslay_diatodo"
         app:layout_constraintTop_toBottomOf="@+id/select2_conslay_diatodo" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="197dp"
+        android:fontFamily="@font/regularnanumsquareround"
+        android:text="등록된 다른 방으로 이동하시겠어요?"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

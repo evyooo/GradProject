@@ -10,6 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e9b3d22-2cb2-457b-be76-95f51d574c67" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Splash.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo_circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo_color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/transfer_room_box.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,11 +24,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Classes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Classes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Home/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/ChooseRoom.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/ChooseRoom.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/Login.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/design_purplebtn.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/design_purplebtn.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_room.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_room.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Backend/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Backend/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,29 +74,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoAdapter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="224" selection-start-line="224" selection-end-line="224" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsAdapter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="141" column="42" lean-forward="true" selection-start-line="141" selection-start-column="42" selection-end-line="141" selection-end-column="42" />
-              <folding>
-                <element signature="e#34#598#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -94,15 +88,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>doneby</find>
-      <find>setUsername</find>
-      <find>keyboard</find>
       <find>switch</find>
       <find>listview</find>
       <find>childpos</find>
       <find>caldate</find>
       <find>mutate</find>
-      <find>thisweek_textview_home</find>
       <find>date_imageview_newtodo</find>
       <find>if (json_response[&quot;result&quot;]</find>
       <find>Todo(</find>
@@ -124,6 +114,10 @@
       <find>update</find>
       <find>update_todo</find>
       <find>current</find>
+      <find>plash</find>
+      <find>filter</find>
+      <find>thisweek_textview_home</find>
+      <find>templist</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -139,20 +133,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_room.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/settings/Setting_room.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarInside_remAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarInside_custAdpater.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_inside.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/layout_calendarlistview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_calendar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_calfraglistview.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_inside_saved.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_delete.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarInside_saved.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/settings/Settings.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_todo_delete.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/Login.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_datepicker3.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_todo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
@@ -161,11 +146,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarInside.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/listviewAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Home/HomeFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/ScoreAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/RepeatAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_todo_repeat.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/NewTodo_repeat.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_todo_score.xml" />
@@ -189,7 +171,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Classes.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/design_purplebtn.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Splash.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/Login.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/ChooseRoom.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/famapp/Home/HomeFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_room.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_room.xml" />
       </list>
     </option>
   </component>
@@ -232,6 +226,34 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="famapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Calendar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FamApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="famapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FamApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="famapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="LoginRegister" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FamApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="famapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FamApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="famapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="Stats" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -240,6 +262,17 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="famapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="todo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FamApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="FamApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -272,11 +305,11 @@
       <recent name="com.example.famapp.Stats" />
     </key>
     <key name="android.template.packageName">
+      <recent name="com.example.famapp" />
       <recent name="com.example.famapp.Board" />
       <recent name="com.example.famapp.todo" />
       <recent name="com.example.famapp.Calendar" />
       <recent name="com.example.famapp.LoginRegister" />
-      <recent name="com.example.famapp" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.famapp" />
@@ -383,11 +416,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.47997138" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.21030043" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
@@ -461,94 +493,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/JoinRoom.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/ChooseRoom.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/Register.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/CreateRoom.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_todolistview.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_todo_delete.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_gridviewcalendar.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="180" column="59" selection-start-line="180" selection-start-column="59" selection-end-line="180" selection-end-column="59" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_calendar.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/pink.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/settings/MembersAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="123" column="16" selection-start-line="123" selection-start-column="16" selection-end-line="132" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3095">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_leave.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_member3.xml">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
@@ -570,13 +514,6 @@
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/settings/Setting_room.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="130" selection-end-column="53" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Board/Board_write.kt">
       <provider selected="true" editor-type-id="text-editor">
@@ -671,13 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Home/HomeFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="116" column="51" selection-start-line="116" selection-start-column="51" selection-end-line="116" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/settings/Settings.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -711,20 +641,6 @@
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1787">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Classes.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="134" selection-start-line="6" selection-start-column="134" selection-end-line="6" selection-end-column="134" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -740,20 +656,123 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/logo_white.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/logo_color.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/design_purplebtn.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Splash.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/Login.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="133" column="48" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Classes.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="78" lean-forward="true" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Stats/StatsAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="141" column="42" lean-forward="true" selection-start-line="141" selection-start-column="42" selection-end-line="141" selection-end-column="42" />
+        <state relative-caret-position="193">
+          <caret line="118" column="14" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
           <folding>
             <element signature="e#34#598#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/logo_circle.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/transfer_room_box.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Calendar/CalendarAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1257">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="224" selection-start-line="224" selection-end-line="224" />
+        <state relative-caret-position="251">
+          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/Home/HomeFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_choose_room.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/LoginRegister/ChooseRoom.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/todo/TodoFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_room.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/famapp/settings/Setting_room.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
         </state>
       </provider>
     </entry>

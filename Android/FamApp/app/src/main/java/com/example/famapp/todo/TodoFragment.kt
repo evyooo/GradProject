@@ -189,6 +189,7 @@ class TodoFragment : Fragment() {
                         templist.add(temp)
 
                     }
+
                     todoAdapter = TodoAdapter(requireContext(), templist)
                     listview_todolist.adapter = todoAdapter
 
