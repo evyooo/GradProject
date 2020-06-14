@@ -125,6 +125,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/roomdes_edittext_setroom" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/roompic_imageview_setroom"
+            app:layout_constraintEnd_toEndOf="@+id/roompic_imageview_setroom"
+            app:srcCompat="@drawable/changepic" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginEnd="9dp"
+            app:layout_constraintBottom_toBottomOf="@+id/roomname_edittext_setroom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/roomname_edittext_setroom"
+            app:srcCompat="@drawable/pencil" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginEnd="9dp"
+            app:layout_constraintBottom_toBottomOf="@+id/roomdes_edittext_setroom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/roomdes_edittext_setroom"
+            app:srcCompat="@drawable/pencil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout

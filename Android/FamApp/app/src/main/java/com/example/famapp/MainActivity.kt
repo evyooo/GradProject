@@ -2,9 +2,11 @@ package com.example.famapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import androidx.fragment.app.FragmentTransaction
 import com.example.famapp.Board.BoardFragment
 import com.example.famapp.Calendar.CalendarFragment
+import com.example.famapp.Global.Companion.density
 import com.example.famapp.Home.HomeFragment
 import com.example.famapp.Stats.StatsFragment
 import com.example.famapp.todo.TodoFragment
@@ -22,6 +24,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+        density = displayMetrics.density
 
 
         val bottomNavigation : BottomNavigationView = findViewById(R.id.btmnav_main)

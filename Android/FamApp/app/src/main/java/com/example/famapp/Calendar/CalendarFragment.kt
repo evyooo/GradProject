@@ -29,6 +29,7 @@ import com.example.famapp.Global.Companion.calcurrentyr
 import com.example.famapp.Global.Companion.caldate
 import com.example.famapp.Global.Companion.calendarlist
 import com.example.famapp.Global.Companion.daylist
+import com.example.famapp.Global.Companion.density
 import com.example.famapp.LoginRegister.Login
 import com.example.famapp.MyPreference
 import com.example.famapp.forCalendar
@@ -102,22 +103,28 @@ class CalendarFragment : Fragment() {
             val cancel : Button = mView.findViewById(R.id.cancel_button_datepicker)
             val save : Button = mView.findViewById(R.id.save_button_datepicker)
 
+            year.minValue = 2019
+            year.maxValue = 2021
 
-            //  TODO ..  최대 최소 설정
-            year.minValue = 2020
-            year.maxValue = 2020
-
-            year.setDisplayedValues(arrayOf("2020년"))
+            year.setDisplayedValues(arrayOf("2019년", "2020년","2021년"))
+            year.value = 2020
 
 
             month.minValue = 1
             month.maxValue = 12
+            month.value = 6
 
             month.setDisplayedValues(arrayOf("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"))
 
             dialog.setView(mView)
             dialog.create()
             dialog.show()
+
+            var width = 269 * density
+            var height = 276 * density
+
+
+            dialog.getWindow().setLayout(width.toInt(), height.toInt())
 
 
             //  취소

@@ -20,14 +20,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="9dp"
             android:orientation="horizontal">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/filter1_conslay"
-                android:layout_width="56dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="20dp"
+                android:layout_width="62dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="14dp"
                 android:layout_weight="1"
                 android:background="@drawable/fileter_selected">
 
@@ -47,9 +47,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/filter2_conslay"
-                android:layout_width="56dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="6dp"
+                android:layout_width="59dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/filter_default">
 
@@ -69,9 +69,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/filter3_conslay"
-                android:layout_width="61dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="6dp"
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/filter_default">
 
@@ -80,8 +80,8 @@
                     android:id="@+id/filter3_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이번주"
                     android:fontFamily="@font/regularnanumsquareround"
+                    android:text="이번주"
                     android:textColor="@android:color/black"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -92,9 +92,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/filter4_conslay"
-                android:layout_width="56dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="6dp"
+                android:layout_width="59dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/filter_default">
 
@@ -103,8 +103,8 @@
                     android:id="@+id/filter4_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="과거"
                     android:fontFamily="@font/regularnanumsquareround"
+                    android:text="과거"
                     android:textColor="@android:color/black"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -115,9 +115,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/filter5_conslay"
-                android:layout_width="74dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="6dp"
+                android:layout_width="82dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="1dp"
                 android:background="@drawable/filter_default">
 
 
@@ -125,8 +125,8 @@
                     android:id="@+id/filter5_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="기한없음"
                     android:fontFamily="@font/regularnanumsquareround"
+                    android:text="기한없음"
                     android:textColor="@android:color/black"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -137,9 +137,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/filter6_conslay"
-                android:layout_width="56dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="6dp"
+                android:layout_width="59dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/filter_default">
 
@@ -148,8 +148,8 @@
                     android:id="@+id/filter6_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="완료"
                     android:fontFamily="@font/regularnanumsquareround"
+                    android:text="완료"
                     android:textColor="@android:color/black"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -176,7 +176,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="오늘의 할 일"
+        android:text="할 일"
+        android:fontFamily="@font/regularnanumsquareround"
         android:textColor="@android:color/black"
         android:textSize="21dp"
         app:layout_constraintEnd_toEndOf="parent"

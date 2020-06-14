@@ -33,5 +33,11 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="board1">#F3E9E9</color>
+    <color name="board2">#F3E9E9</color>
+    <color name="board3">#F3E9E9</color>
+    <color name="board4">#F3E9E9</color>
+    <color name="board5">#F3E9E9</color>
+
 
 </resources>

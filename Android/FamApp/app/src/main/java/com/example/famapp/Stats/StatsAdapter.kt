@@ -14,9 +14,15 @@ import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.DragEvent
 import android.widget.*
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.famapp.Global
+import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.R
 import com.example.famapp.StatData
 import com.example.famapp.StatMembers
+import org.json.JSONObject
 
 
 class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, var body: MutableList<MutableList<StatData>>) : BaseExpandableListAdapter() {
@@ -45,7 +51,45 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
         val score = convertView?.findViewById<TextView>(R.id.score_textview_statsgroup)
         val indicator = convertView?.findViewById<ImageView>(R.id.indicator_imageview_statsgroup)
 
-        name!!.text = header[groupPosition].name
+
+
+        //  이름 가져오기
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        var userid = header[groupPosition].name
+
+        val login_url = basic_url + "get_name?userid=$userid"
+
+        val testRequest = object : StringRequest(Method.GET, login_url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+                if (json_response["result"].toString() == "1") {
+
+                    name!!.text = json_response["name"].toString()
+
+                }
+
+            }, Response.ErrorListener {
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(context).add(testRequest)
+
+
+
+
+
+
         score!!.text = header[groupPosition].score
 
 
@@ -143,10 +187,10 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
 
             //  0점 획득이면 점수 안쓰기
             if(second == "0"){
-                tempstr += "$third $first "
+                tempstr += "$third $first \n"
             }
             else{
-                tempstr += "$third $first +$second "
+                tempstr += "$third $first +$second \n"
             }
 
 
@@ -178,5 +222,7 @@ class StatsAdapter(var context: Context, var header: MutableList<StatMembers>, v
     override fun getGroupCount(): Int {
         return header.size
     }
+
+
 
 }

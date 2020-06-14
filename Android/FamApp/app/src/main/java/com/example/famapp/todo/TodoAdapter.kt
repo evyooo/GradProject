@@ -65,8 +65,6 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         }
 
 
-
-
         if (todo.duedate == ""){
             datetv.visibility = View.GONE
             repeatimg.visibility = View.GONE
@@ -77,6 +75,37 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
             score.visibility = View.GONE
         }
 
+        var userid = todo.doneby
+
+        //  이름 가져오기
+        val myJson = JSONObject()
+        val requestBody = myJson.toString()
+
+        val login_url = basic_url + "get_name?userid=$userid"
+
+        val testRequest = object : StringRequest(Method.GET, login_url,
+            Response.Listener { response ->
+
+                var json_response = JSONObject(response)
+                if (json_response["result"].toString() == "1") {
+
+                    doneby.text = todo.donedate + " " + json_response["name"].toString()
+
+                }
+
+            }, Response.ErrorListener {
+
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray()
+            }
+        }
+
+        Volley.newRequestQueue(context).add(testRequest)
 
 
 
@@ -94,7 +123,7 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
         else{
             checkBox.setImageResource(R.drawable.icon_checked_small)
             doneby.visibility = View.VISIBLE
-            doneby.text = "${todo.donedate} ${todo.doneby}"
+
 
             title.setTextColor(context!!.getColor(R.color.colorPrimary))
             title.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG)
@@ -113,7 +142,39 @@ class TodoAdapter (val context: Context, val todolist: ArrayList<Todo>) : BaseAd
                     monthstr = "0${current.monthValue}"
                 }
 
-                doneby.text = "$monthstr.${current.dayOfMonth} $username"
+
+
+                //  이름 가져오기
+                val myJson = JSONObject()
+                val requestBody = myJson.toString()
+
+                val login_url = basic_url + "get_name?userid=$username"
+
+                val testRequest = object : StringRequest(Method.GET, login_url,
+                    Response.Listener { response ->
+
+                        var json_response = JSONObject(response)
+                        if (json_response["result"].toString() == "1") {
+
+                            doneby.text = "$monthstr.${current.dayOfMonth} ${json_response["name"].toString()}"
+
+                        }
+
+                    }, Response.ErrorListener {
+
+                    }) {
+                    override fun getBodyContentType(): String {
+                        return "application/json; charset=utf-8"
+                    }
+
+                    override fun getBody(): ByteArray {
+                        return requestBody.toByteArray()
+                    }
+                }
+
+                Volley.newRequestQueue(context).add(testRequest)
+
+
 
                 title.setTextColor(context!!.getColor(R.color.colorPrimary))
                 title.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG)

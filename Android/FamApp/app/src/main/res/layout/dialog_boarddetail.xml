@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout13"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/board1"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/date_textview_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/regularnanumsquareround"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/more_imageview_detail"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_textview_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/date_textview_detail"
+        app:layout_constraintVertical_bias="0.65"
+        app:srcCompat="@drawable/more" />
+
+    <TextView
+        android:id="@+id/content_textview_detail"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:lineSpacingMultiplier="2"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/date_textview_detail"
+        app:layout_constraintTop_toBottomOf="@+id/date_textview_detail" />
+
+    <TextView
+        android:id="@+id/writtenby_textview_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="22dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_textview_detail"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

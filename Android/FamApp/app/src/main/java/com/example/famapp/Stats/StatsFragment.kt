@@ -17,6 +17,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.famapp.*
 import com.example.famapp.Global.Companion.basic_url
+import com.example.famapp.Global.Companion.density
 import com.example.famapp.LoginRegister.Login
 import com.example.famapp.todo.TodoAdapter
 import kotlinx.android.synthetic.main.fragment_stats.*
@@ -107,14 +108,16 @@ class StatsFragment : Fragment() {
             val cancel: Button = mView.findViewById(R.id.cancel_button_datepicker)
             val save: Button = mView.findViewById(R.id.save_button_datepicker)
 
-            year.minValue = 2020
-            year.maxValue = 2020
+            year.minValue = 2019
+            year.maxValue = 2021
 
-            year.setDisplayedValues(arrayOf("2020년"))
+            year.setDisplayedValues(arrayOf("2019년", "2020년", "2021년"))
+            year.value = 2020
 
 
             month.minValue = 1
             month.maxValue = 12
+            month.value = 6
 
             month.setDisplayedValues(
                 arrayOf(
@@ -137,6 +140,15 @@ class StatsFragment : Fragment() {
             dialog.setView(mView)
             dialog.create()
             dialog.show()
+
+
+            //  크기 조절
+            var width = 269 * density
+            var height = 276 * density
+
+
+            dialog.getWindow().setLayout(width.toInt(), height.toInt())
+
 
 
             //  취소
@@ -166,23 +178,6 @@ class StatsFragment : Fragment() {
 
         }
 
-
-
-
-
-        //  TODO resize
-//
-//        //  resize
-//        for (i in 0..header.size -1){
-//            bodycount += body[i].size
-//        }
-//
-//        var eachLen = header.size * 66 + bodycount * 16 + 50
-//
-//        val height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, eachLen.toFloat(), resources.displayMetrics).toInt()
-//        val params = LinearLayout.LayoutParams(sizewidth, height)
-//        expandable_stats.layoutParams = params
-//
 
 
     }

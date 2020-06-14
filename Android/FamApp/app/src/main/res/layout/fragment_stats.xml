@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="0dp"
-        android:layout_height="127dp"
+        android:layout_height="145dp"
         android:layout_marginTop="54dp"
         android:src="#F5F8FF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/date_conslay_statfrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_imageview_stats">
@@ -47,6 +47,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="#9BABDC"
+            app:layout_constraintEnd_toEndOf="@+id/year_textview_statsfrag"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/year_textview_statsfrag"
+            app:layout_constraintTop_toBottomOf="@+id/year_textview_statsfrag" />
+
         <TextView
             android:id="@+id/month_textview_statsfrag"
             android:layout_width="wrap_content"
@@ -58,6 +67,15 @@
             android:textSize="22dp"
             app:layout_constraintStart_toEndOf="@+id/imageView14"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="#9BABDC"
+            app:layout_constraintEnd_toEndOf="@+id/month_textview_statsfrag"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/month_textview_statsfrag"
+            app:layout_constraintTop_toBottomOf="@+id/month_textview_statsfrag" />
 
         <ImageView
             android:id="@+id/imageView14"
@@ -85,6 +103,7 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/regularnanumsquareround"
         android:text="점수 현황을 보여드릴게요!"
         android:textColor="@android:color/black"
@@ -98,6 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/regularnanumsquareround"
         android:text="현황"
         android:textColor="@android:color/black"
         android:textSize="21dp"

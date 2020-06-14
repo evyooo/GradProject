@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout11"
-    android:layout_width="140dp"
+    android:layout_width="154dp"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
     android:background="@drawable/pink"
     android:orientation="vertical">
 
@@ -12,7 +14,7 @@
         android:id="@+id/postdate_textview_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/regularnanumsquareround"
         android:text="TextView"
@@ -26,6 +28,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_more" />
@@ -33,7 +36,7 @@
     <TextView
         android:id="@+id/content_textview_board"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/regularnanumsquareround"
@@ -49,21 +52,21 @@
         android:id="@+id/writtenby_textview_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="21dp"
         android:fontFamily="@font/regularnanumsquareround"
         android:text="TextView"
         android:textColor="@color/black"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/content_textview_board"
-        app:layout_constraintTop_toBottomOf="@+id/content_textview_board" />
+        app:layout_constraintTop_toBottomOf="@+id/content_textview_board"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/fix_imageview_board"
         android:layout_width="14dp"
         android:layout_height="14dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/writtenby_textview_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/writtenby_textview_board"

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,10 +54,12 @@ class CalendarAdapter(var context: Context, var startblank: Int, var datelist: A
         if ("$calcurrentyr.$calcurrentmon.${datelist[position]}" == formatted){
             circle.visibility = View.VISIBLE
             date.setTextColor(context.getColor(R.color.white))
+            date.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10f)
         }
         else{
             circle.visibility = View.INVISIBLE
             date.setTextColor(context.getColor(R.color.black))
+            date.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 11f)
         }
 
 

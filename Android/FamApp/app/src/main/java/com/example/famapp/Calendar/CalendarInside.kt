@@ -147,28 +147,31 @@ class CalendarInside : AppCompatActivity() {
 
 
         //  하루종일 스위치
-        allday_switch_cinside.setOnCheckedChangeListener{CompoundButton, onSwitch ->
-
-            if (onSwitch){
-
+        var switchflag = 0
+        switch_imageview_calendar.setOnClickListener {
+            if (switchflag == 0){
                 calendday = calstartday
                 endday_textview_cinside.text = calendday
 
                 startday_imageview_cinside.setOnClickListener(null)
                 endday_imageview_cinside.setOnClickListener(null)
+                switch_imageview_calendar.setImageResource(R.drawable.on)
+                switchflag = 1
 
             }
             else{
-
                 startday_imageview_cinside.setOnClickListener{
                     startday()
                 }
                 endday_imageview_cinside.setOnClickListener{
                     enddate()
                 }
+                switch_imageview_calendar.setImageResource(R.drawable.off)
+                switchflag = 0
+                switchflag = 0
             }
-
         }
+
 
 
         //  시작일 다이얼로그
@@ -303,11 +306,10 @@ class CalendarInside : AppCompatActivity() {
         val save : Button = mView.findViewById(R.id.save_button_3)
 
 
-        //  TODO ..  최대 최소 설정
         year.minValue = 2019
-        year.maxValue = 2020
+        year.maxValue = 2021
 
-        year.setDisplayedValues(arrayOf("2019년", "2020년"))
+        year.setDisplayedValues(arrayOf("2019년", "2020년", "2021년"))
 
 
         month.minValue = 1
@@ -317,6 +319,14 @@ class CalendarInside : AppCompatActivity() {
 
         day.minValue = 1
         day.maxValue = 30
+
+        day.setDisplayedValues(arrayOf("1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일", "15일", "16일", "17일", "18일", "19일", "20일"
+            ,"21일", "22일", "23일", "24일", "25일", "26일", "27일", "28일", "29일", "30일", "31일"))
+
+
+        year.value = 2020
+        month.value = 6
+        day.value = 15
 
 
         dialog.setView(mView)

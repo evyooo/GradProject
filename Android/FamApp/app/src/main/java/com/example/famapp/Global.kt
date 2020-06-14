@@ -9,6 +9,8 @@ class Global : Application() {
 
         val basic_url = "http://13.124.180.27:5000/"
 
+        var density = 0f
+
 
         var memberslist = arrayListOf<Members>()
 

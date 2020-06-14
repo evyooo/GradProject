@@ -64,6 +64,25 @@ def login():
     return jsonify(result)
 
 
+#  아이디 -> 이름
+@app.route("/get_name")
+def get_name():
+    con = Mysql()
+    userid = request.args.get("userid")
+
+    query = "select name from USERINFO where userid = '" + userid + "'"
+    con.cursor.execute(query)
+    query_result = con.cursor.fetchall()
+
+    if (query_result):
+        result = {'result': 1, "name": query_result[0][0]}
+    else:
+        result = {'result': -1, 'message':"unvalid"}
+
+    con.close()
+    return jsonify(result)
+
+
 
 #  새로운 방 생성
 @app.route("/create_room")

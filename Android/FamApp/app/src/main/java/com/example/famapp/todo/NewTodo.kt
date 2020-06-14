@@ -46,18 +46,23 @@ class NewTodo : AppCompatActivity() {
 
 
         //  스위치 꺼져있으면 날짜 설정 못함
-        datebool_switch_newtodo.setOnCheckedChangeListener{CompoundButton, onSwitch ->
+        var switchflag = 0
 
-            if (onSwitch){
+        switch_imageview_newtodo.setOnClickListener {
+            if (switchflag == 0){
                 date_imageview_newtodo.setOnClickListener {
                     dateDialog()
                 }
+                switch_imageview_newtodo.setImageResource(R.drawable.on)
+                switchflag = 1
             }
-            else {
+            else{
                 date_imageview_newtodo.setOnClickListener(null)
+                switchflag = 0
+                switch_imageview_newtodo.setImageResource(R.drawable.off)
+
             }
         }
-
 
 
 
