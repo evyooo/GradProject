@@ -154,7 +154,10 @@ class CalendarInside : AppCompatActivity() {
                 endday_textview_cinside.text = calendday
 
                 startday_imageview_cinside.setOnClickListener(null)
+                startday_textview_cinside.setOnClickListener(null)
                 endday_imageview_cinside.setOnClickListener(null)
+                endday_textview_cinside.setOnClickListener(null)
+
                 switch_imageview_calendar.setImageResource(R.drawable.on)
                 switchflag = 1
 
@@ -163,7 +166,13 @@ class CalendarInside : AppCompatActivity() {
                 startday_imageview_cinside.setOnClickListener{
                     startday()
                 }
+                startday_textview_cinside.setOnClickListener{
+                    startday()
+                }
                 endday_imageview_cinside.setOnClickListener{
+                    enddate()
+                }
+                endday_textview_cinside.setOnClickListener{
                     enddate()
                 }
                 switch_imageview_calendar.setImageResource(R.drawable.off)
@@ -180,14 +189,19 @@ class CalendarInside : AppCompatActivity() {
         }
 
 
-
         //  종료일 다이얼로그
         endday_imageview_cinside.setOnClickListener {
             enddate()
         }
 
+
         //  반복
         remind_imageview_cinside.setOnClickListener {
+            var intent = Intent(this, CalendarInside_remind::class.java)
+            startActivity(intent)
+        }
+
+        remind_textview_cinside.setOnClickListener {
             var intent = Intent(this, CalendarInside_remind::class.java)
             startActivity(intent)
         }

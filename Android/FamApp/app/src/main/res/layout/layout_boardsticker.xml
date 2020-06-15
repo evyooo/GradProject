@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="2dp"
     android:layout_marginRight="2dp"
-    android:background="@drawable/pink"
+    android:background="@drawable/new_boardpink"
     android:orientation="vertical">
 
     <TextView
@@ -28,7 +28,6 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_more" />
@@ -40,9 +39,10 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/regularnanumsquareround"
-        android:text="TextView"
+        android:lineSpacingExtra="3dp"
+        android:text="테스트세트스스트랄라라라ㅏ라라라"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/postdate_textview_board"
@@ -52,6 +52,7 @@
         android:id="@+id/writtenby_textview_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="21dp"
         android:fontFamily="@font/regularnanumsquareround"
         android:text="TextView"
@@ -59,8 +60,8 @@
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/content_textview_board"
-        app:layout_constraintTop_toBottomOf="@+id/content_textview_board"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/postdate_textview_board"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/fix_imageview_board"

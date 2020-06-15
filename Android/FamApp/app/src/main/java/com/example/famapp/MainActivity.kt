@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigation : BottomNavigationView = findViewById(R.id.btmnav_main)
 
+//        bottomNavigation.findViewById<>()
+
         //  처음 홈 프래그먼트로 띄우기 (디폴트)
         homeFragment = HomeFragment()
         supportFragmentManager.beginTransaction()

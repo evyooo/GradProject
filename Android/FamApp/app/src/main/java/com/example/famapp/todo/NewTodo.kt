@@ -53,11 +53,15 @@ class NewTodo : AppCompatActivity() {
                 date_imageview_newtodo.setOnClickListener {
                     dateDialog()
                 }
+                duedate_textview_imageview.setOnClickListener {
+                    dateDialog()
+                }
                 switch_imageview_newtodo.setImageResource(R.drawable.on)
                 switchflag = 1
             }
             else{
                 date_imageview_newtodo.setOnClickListener(null)
+                duedate_textview_imageview.setOnClickListener(null)
                 switchflag = 0
                 switch_imageview_newtodo.setImageResource(R.drawable.off)
 
@@ -72,9 +76,19 @@ class NewTodo : AppCompatActivity() {
             startActivity(intent)
         }
 
+        score_textview_newtodo.setOnClickListener {
+            var intent = Intent(this, NewTodo_score::class.java)
+            startActivity(intent)
+        }
+
 
         //  반복
         repeat_imageview_newtodo.setOnClickListener {
+            var intent = Intent(this, NewTodo_repeat::class.java)
+            startActivity(intent)
+        }
+
+        repeat_textview_newtodo.setOnClickListener {
             var intent = Intent(this, NewTodo_repeat::class.java)
             startActivity(intent)
         }

@@ -20,6 +20,7 @@ import com.example.famapp.Global.Companion.basic_url
 import com.example.famapp.Global.Companion.memberslist
 import com.example.famapp.settings.Settings
 import com.example.famapp.todo.TodoAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_todo.*
 import org.json.JSONObject
@@ -131,6 +132,14 @@ class HomeFragment : Fragment() {
                 ?.replace(R.id.framelayout, calendarFragment)
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 ?.commit()
+        }
+
+        todo_move.setOnClickListener {
+//            val bottomNavigation : BottomNavigationView = findViewById(R.id.btmnav_main)
+        }
+
+        stats_move.setOnClickListener {
+
         }
 
 

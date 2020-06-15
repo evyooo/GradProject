@@ -52,6 +52,9 @@ class BoardEdit : AppCompatActivity() {
         }
 
 
+        cancel_button_boardedit.setOnClickListener {
+            finish()
+        }
 
         save_button_boardedit.setOnClickListener {
 
@@ -93,6 +96,7 @@ class BoardEdit : AppCompatActivity() {
 
 
         }
+
 
     }
 }

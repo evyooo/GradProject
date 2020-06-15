@@ -49,7 +49,7 @@ class BoardAdapter (var context: Context, var arrayList: ArrayList<BoardSticker>
 
 
         //  랜덤 색상으로 컬러 바꿔주기
-        var colorset = arrayOf(R.drawable.sticker1, R.drawable.sticker2, R.drawable.sticker3, R.drawable.sticker4, R.drawable.pink)
+        var colorset = arrayOf(R.drawable.new_boardgreen, R.drawable.new_boardyellow, R.drawable.new_boardpurple, R.drawable.new_boardpurplelight, R.drawable.new_boardpink)
         var detailcolor = arrayOf(R.drawable.board_green, R.drawable.board_yellow, R.drawable.board_dark, R.drawable.board_light, R.drawable.pinkdetail)
 
         val random = Random()

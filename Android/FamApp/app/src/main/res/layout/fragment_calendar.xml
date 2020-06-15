@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/regularnanumsquareround"
         android:text="일정"
         android:textColor="@android:color/black"
         android:textSize="21dp"
@@ -31,13 +32,13 @@
 
     <ImageView
         android:id="@+id/add_imageview_calendar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="17dp"
         android:src="@drawable/plus"
+        app:layout_constraintBottom_toBottomOf="@+id/month_textview_calendar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_imageview_calendar" />
+        app:layout_constraintTop_toTopOf="@+id/month_textview_calendar" />
 
     <LinearLayout
         android:id="@+id/linearLayout10"
