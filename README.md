@@ -3,7 +3,11 @@
 룸메이트와 일정을 공유하고, 집안일을 분담할 수 있는 어플리케이션
 
 
-* 개발 동기 [link][description]
+개발 동기 [link][description]
+
+
+
+
 [description] : https://yuuj.tistory.com/109
 
 
