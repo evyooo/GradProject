@@ -15,10 +15,10 @@ UI 디자이너와 함께 2인 팀으로 작업
 Design credits to cy (cykoo9@naver.com)
 
 
-* 개발 환경
-서버 (AWS EC2 Ubuntu 18.04.4 LTS + Python 3.6.9(Flask 1.1.2))
-안드로이드 (Kotlin 1.3.41)
-데이터베이스 (서버단 MySQL 5.7.30 + 어플리케이션단 SharedPreference)
+* 개발 환경   
+서버 (AWS EC2 Ubuntu 18.04.4 LTS + Python 3.6.9(Flask 1.1.2))   
+안드로이드 (Kotlin 1.3.41)    
+데이터베이스 (서버단 MySQL 5.7.30 + 어플리케이션단 SharedPreference)    
 
 
 
