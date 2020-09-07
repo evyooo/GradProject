@@ -11,9 +11,9 @@
 
 ## Roles
 
-UI 디자이너와 함께 2인 팀으로 작업
+UI 디자이너와 함께 2인 팀으로 작업   
 Design credits to cy (cykoo9@naver.com)
-
+    
 
 * 개발 환경   
 서버 (AWS EC2 Ubuntu 18.04.4 LTS + Python 3.6.9(Flask 1.1.2))   
